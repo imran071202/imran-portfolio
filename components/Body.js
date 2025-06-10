@@ -8,8 +8,8 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Body = () => {
     return (
         <>
-            <div id='Body' name="Home" className="main mt-5 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center md:h-[79vh]">
-                <div className="left  md:h-[70vh] md:w-6/11 flex justify-center flex-col px-3 py-5 order-2 ">
+            <div id='Body' name="Home" className="main  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center ">
+                <div className="left  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
                     <p className='text-lg mt-2 md:mt-0'>Welcome In My Feed</p>
                     <div className="space-x-2 mt-0.5"> <span className='font-semibold text-xl md:text-3xl'>Hello, I'm a</span>
 
@@ -42,9 +42,9 @@ const Body = () => {
                     </div>
                 </div>
                 {/* image */}
-                <div className="right flex justify-center mt-2 md:mt-0 md:justify-end items-center  md:h-[70vh]  md:w-4/10 lg:w-3/10 order-1 md:order-2">
-                    <div className=" rounded-full md:mr-10 overflow-hidden h-75 w-77 md:h-82 md:w-85 border-1 border-green-200">
-                        <img src="./photo/imran.jpeg" alt="" className='h-75 w-77 md:h-82 md:w-85 bg-center bg-cover' />
+                <div className="right flex justify-center pt-5 md:mt-0 md:justify-end lg:justify-center items-center  md:h-[55vh] lg:h-[79vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2">
+                    <div className=" rounded-full md:mr-10 lg:mr-0 overflow-hidden h-60 w-65 md:h-82 md:w-85 border-1 border-green-200">
+                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-65 md:h-82 md:w-85 bg-center bg-cover' />
 
                     </div>
 

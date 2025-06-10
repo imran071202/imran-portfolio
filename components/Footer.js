@@ -8,12 +8,12 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="Footer h-55 md:h-35 bg-gray-900 flex flex-col md:flex-row md:justify-around justify-center items-center border-t-1 ">
+      <div className="Footer h-65 md:h-35 bg-gray-900 flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
 
         <a href="#Home"><div className="logo text-white text-2xl md:ml-10 cursor-pointer"><p>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
           <p className='text-sm text-center'>Web Developer</p></div></a>
         <div className="menu text-white flex justify-center mt-5 ">
-          <ul className='flex space-x-3 md:space-x-10 md:ml-15 text-lg  font-semibold'>
+          <ul className='flex space-x-6 md:space-x-10 md:ml-15 text-sm md:font-semibold'>
             <a href="#Body"><li id='' className='hover:underline hover:scale-100 hover:pt-2 hover:text-green-200'>Home</li></a>
             <a href="#About"><li id='' className='hover:underline hover:scale-100 hover:pt-2 hover:text-green-200'>About</li></a>
             <a href="#Project"><li id='' className='hover:underline hover:scale-100 hover:pt-2 hover:text-green-200'>Project</li></a>

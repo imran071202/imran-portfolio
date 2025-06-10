@@ -34,7 +34,7 @@ const About = () => {
 
                     <p className='text-2xl flex flex-col justify-center items-center font-bold mt-15 mb-7 md:mb-5 text-green-800'>My Skills
                     </p>
-                    <div className="skills pl-5 md:pl-25 md:ml-15 text-center flex space-x-3  flex-wrap">
+                    <div className="skills pl-5  md:ml-10 text-center flex space-x-3  flex-wrap">
                         <p className='bg-gray-200 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2 hover:bg-gray-500 hover:text-white cursor-pointer'>HTML</p>
                         <p className='bg-gray-200 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-500 hover:text-white cursor-pointer'>CSS</p>
                         <p className='bg-gray-200 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-500 hover:text-white cursor-pointer'>Python</p>
