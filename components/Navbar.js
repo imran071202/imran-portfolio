@@ -46,7 +46,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div id='Home' className="nav h-18 lg:h-20 md:pr-5  flex justify-between   ">
+            <div id='Home' className="nav bg-gradient-to-r from-blue-200 to-indigo-400 h-18 lg:h-20 md:pr-5  flex justify-between   ">
                 <div className="logo sm: w-1/3 md:w-1/4 h-full justify-center items-center font-semibold flex flex-col">
                     <a href="/"><p className='text-2xl'>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
                     <p className='text-sm text-center'>Web Developer</p></a>
@@ -65,7 +65,8 @@ const Navbar = () => {
                             activeClass='active'>{text}</Link></li>
                         ))}
                     
-                    <li onClick={change} className=' flex justify-center '>{mode == "light" ? <BiSolidSun className='text-3xl text-yellow-500 cursor-pointer' /> : <FaRegMoon className='cursor-pointer text-2xl text-indigo-400' />}</li></ul>
+                    {/* <li onClick={change} className=' flex justify-center '>{mode == "light" ? <BiSolidSun className='text-3xl text-yellow-500 cursor-pointer' /> : <FaRegMoon className='cursor-pointer text-2xl text-indigo-400' />}</li> */}
+                    </ul>
 
                     {/* <div className="flex justify-center items-center w-10 mr-10"><BiSolidSun className='text-3xl cursor-pointer text-yellow-500' /></div> */}
 
@@ -76,12 +77,12 @@ const Navbar = () => {
                 {/* mobile menu */}
 
             </div>
-            <div className="partition border-b-1  border-gray-300"></div>
+            {/* <div className="partition border-b-1  border-gray-300"></div> */}
 
             {
-            menu && <div className="menu h-90 w-full  flex justify-center items-center lg:hidden">
+            menu && <div className="menu py-8 bg-gradient-to-r from-blue-200 to-green-100  w-full absolute flex justify-center items-center lg:hidden">
 
-                <ul className='space-y-7 text-center'> {
+              <ul className='space-y-7 text-center '> {
                     navMenu.map(({ id, text }) => (
                         <li key={id} className='text-xl font-semibold '>
                             <Link to={text}
@@ -90,7 +91,8 @@ const Navbar = () => {
                             offset={-70}
                             activeClass='active'>{text}</Link></li>
 
-                    ))}<li onClick={change} className=' flex justify-center '>{mode == "light" ? <BiSolidSun className='text-3xl text-yellow-500 cursor-pointer' /> : <FaRegMoon className='text-2xl text-indigo-400 cursor-pointer' />}</li>
+                    ))}
+                     {/* <li onClick={change} className=' flex justify-center '>{mode == "light" ? <BiSolidSun className='text-3xl text-yellow-500 cursor-pointer' /> : <FaRegMoon className='text-2xl text-indigo-400 cursor-pointer' />}</li> */}
                 </ul>
 
             </div>

@@ -4,7 +4,7 @@ const Project = () => {
     return (
         <>
             <div id='Project' name="Project" className="">
-                <p className='text-3xl flex flex-col justify-center items-center font-bold mt-10 mb-7 md:mb-12'>Projects <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
+                <p className=' bg-gradient-to-r from-slate-200 to-indigo-200 text-3xl flex flex-col justify-center items-center font-bold mt-10 mb-7 md:mb-12'>Projects <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
                 {/* 1 */}
                 <div className="projectOne  w-full items-center flex flex-col md:flex-row justify-center mb-5 md:mb-40">
                     <div className=" w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center"> <img src="./photo/homeroots.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />

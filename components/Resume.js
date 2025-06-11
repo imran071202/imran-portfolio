@@ -28,9 +28,9 @@ const Resume = () => {
   };
   return (
    <>
-   <p className='text-3xl flex flex-col justify-center items-center font-bold mt-10 mb-7 md:mb-1'>Resume <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
+   <p className=' text-3xl flex flex-col justify-center items-center font-bold mt-10 mb-7 md:mb-1'>Resume <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
 
-   <div id='Resume' name="Resume" className=" h-160 mt-3 flex justify-center items-center flex-col md:flex-row">
+   <div id='Resume' name="Resume" className=" bg-gradient-to-r from-slate-200 to-indigo-200 h-160 mt-3 flex justify-center items-center flex-col md:flex-row">
      
     <div className="pic h-100 w-80 md:h-140 md:w-100 md:ml-40">
         <img src="./photo/Imran_Shaikh_cv.jpg" className='h-100 w-80 md:h-140 md:w-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer border-1' alt=""  onClick={handleImageClick} />

@@ -3,7 +3,7 @@ import { GiPlayButton } from "react-icons/gi";
 const About = () => {
     return (
         <>
-            <div name="About" id='About' className=" flex  justify-center items-center ">
+            <div name="About" id='About' className=" bg-gradient-to-r from-slate-200 to-indigo-200 flex  justify-center items-center ">
                 <div className="  text-center flex flex-col items-center  px-6 md:px-20 md:mb-10 mb-3 ">
                     <div className="headline mt-3 ">
                         <p className='text-3xl flex flex-col justify-center items-center font-bold mt-6 mb-2 md:mb-1'>About<span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span>
@@ -15,17 +15,17 @@ const About = () => {
                     <div className="contain">
                         <p className='text-2xl md:text-3xl text-green-800 font-bold'>Education</p>
                         {/* college */}
-                        <div className="border-1  hover:border-0  hover:text-green-950 mt-6 rounded-lg hover:bg-red-100 cursor-pointer px-8 py-4 md:px-50">
+                        <div className="border-1  hover:border-0  hover:text-green-950 mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
                             <b className='text-xl '> Bachelor of Computer Applications (BCA)</b>
                             <p className='text-lg font-semibold'> JIS COLLEGE OF ENGINEERING <br /><span className='font-normal text-[15px] '>2021-24</span><br /> <span className='text-lg font-normal'>Kalyani, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2024</span> </p></div>
 
                         {/* 12 */}
-                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-red-100 cursor-pointer px-8 py-4 md:px-50">
+                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
                             <b className='text-xl '>WBCHSE (12th) </b>
                             <p className='text-lg font-semibold'> KABI BIJOYLAL HS INTITUTE <br /><span className='font-normal text-[15px] '>2029-21</span><br /> <span className='text-lg font-normal'>Krishnanagar, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2021</span> </p></div>
 
                         {/* 10 */}
-                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-red-100 cursor-pointer px-8 py-4 md:px-50">
+                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
                             <b className='text-xl '> WBBSE (10th)</b>
                             <p className='text-lg font-semibold'>DON BOSCO HIGH SCHOOL <br /><span className='font-normal text-[15px] '>2009-19</span><br /> <span className='text-lg font-normal'>Krishnanagar, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2019</span> </p></div>
 

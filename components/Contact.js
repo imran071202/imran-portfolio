@@ -30,7 +30,7 @@ const Contact = () => {
   };
   return (
     <>
-    <div id='Contact' name="Contact" className="  flex flex-col justify-center items-center mt-12 mb-10 md:mb-20  w-full">
+    <div id='Contact' name="Contact" className=" bg-gradient-to-r from-slate-200 to-indigo-200  flex flex-col justify-center items-center mt-12 mb-10 md:mb-20  w-full">
       
      <p className='text-3xl flex flex-col justify-center items-center font-bold mb-7 md:mb-1'>Contact <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
 

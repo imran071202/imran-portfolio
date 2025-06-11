@@ -5,10 +5,16 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
+import { motion } from "motion/react"
+
 const Body = () => {
     return (
         <>
-            <div id='Body' name="Home" className="main  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center ">
+           <motion.div
+   initial={{ x: "100%" }}
+  animate={{ x: "0%" }}
+  
+id='Body' name="Home" className=" text-white main bg-gradient-to-r from-slate-900 to-indigo-900  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center ">
                 <div className="left  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
                     <p className='text-lg mt-2 md:mt-0'>Welcome In My Feed</p>
                     <div className="space-x-2 mt-0.5"> <span className='font-semibold text-xl md:text-3xl'>Hello, I'm a</span>
@@ -24,7 +30,7 @@ const Body = () => {
                     <br />
 
                    <p className='text-justify text-lg '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
-                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I’ve worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <br /><span className='mt-10'>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
+                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <br /><span className='mt-10'>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
                         </p>
                     <br />
 
@@ -50,8 +56,8 @@ const Body = () => {
 
                 </div>
 
-            </div>
-            <div className="partition border-b-1 mt-6 border-gray-300"></div>
+            </motion.div> 
+            {/* <div className="partition border-b-1 mt-6 border-gray-300"></div> */}
         </>
     )
 }
