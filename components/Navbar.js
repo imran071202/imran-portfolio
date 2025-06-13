@@ -30,23 +30,12 @@ const Navbar = () => {
             text: "Contact"
         },]
 
-        const [mode, setmode] = useState("light");
-        const change = ()=> {
-            if(mode === "light"){
-                setmode("dark")
-            }else{
-                setmode("light")
-            }
-
-        } 
-        useEffect(() => {
-    document.querySelector("body").className = mode
-  }, [mode])
+        
 
 
     return (
         <>
-            <div id='Home' className="nav bg-gradient-to-r from-blue-200 to-indigo-400 h-18 lg:h-20 md:pr-5  flex justify-between   ">
+            <div id='Home' className="nav  text-white bg-gradient-to-r from-indigo-950 to-slate-700 h-18 lg:h-20 md:pr-5  flex justify-between   ">
                 <div className="logo sm: w-1/3 md:w-1/4 h-full justify-center items-center font-semibold flex flex-col">
                     <a href="/"><p className='text-2xl'>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
                     <p className='text-sm text-center'>Web Developer</p></a>

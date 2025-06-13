@@ -67,7 +67,7 @@ const Project = () => {
 
 
             </div>
-            <div className="partition border-b-1  border-gray-300"></div>
+            <div className="partition border-b-1  border-gray-500"></div>
 
         </>
     )

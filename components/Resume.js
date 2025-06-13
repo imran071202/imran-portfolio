@@ -73,7 +73,7 @@ const Resume = () => {
          <div className="pdfBtn"><button onClick={handleDownloadPdf} className='bg-red-500 hover:bg-red-700 hover:text-white cursor-pointer px-20 py-5 rounded-lg font-semibold text-xl md:text-2xl mt-5 flex '><FaFileDownload className='mt-1 mr-3 md:mr-5'/>Download Pdf</button></div>
     </div>
    </div>
-    <div className="partition border-b-1 mt-7 border-gray-300"></div>
+    <div className="partition border-b-1 mt-7 border-gray-500"></div>
    </>
   )
 }

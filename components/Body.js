@@ -10,53 +10,59 @@ import { motion } from "motion/react"
 const Body = () => {
     return (
         <>
-           <motion.div
-   initial={{ x: "100%" }}
-  animate={{ x: "0%" }}
-  
-id='Body' name="Home" className=" text-white main bg-gradient-to-r from-slate-900 to-indigo-900  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center ">
-                <div className="left  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
-                    <p className='text-lg mt-2 md:mt-0'>Welcome In My Feed</p>
-                    <div className="space-x-2 mt-0.5"> <span className='font-semibold text-xl md:text-3xl'>Hello, I'm a</span>
+            <motion.div
+                initial={{ y: "100%" }}
+                animate={{ y: "0%" }}
 
-                        <ReactTyped
-                            className='text-2xl md:text-4xl text-green-600 font-bold'
-                            strings={["Programmer", "Web Developer", "Coder"]}
-                            typeSpeed={50}
-                            backSpeed={40}
-                            loop={true}
 
-                        /></div>
+                id='Body' name="Home" className=" h-155 text-center md:text-left md:h-150 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-start md:justify-center ">
+
+                <div className="left md:pl-20  mt-3 md:mt-0  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
+
+                    <span className='text-xl hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '><span className='text-3xl'>Hello </span>I'm </span>
+                    <span className=' text-4xl md:text-7xl font-bold pb-2 hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '>Imran Shaikh</span>
+                   
+                    <div className="space-x-2 pt-2 h-15 mt-0.5 flex items-center  flex-col md:flex-row hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 "> <span className='font-semibold text-lg md:text-3xl'>Welcome In My Feed I'm</span>
+                        <span className='font-semibold text-lg md:text-3xl  '> <span></span>
+                            <ReactTyped
+                                className='text-3xl md:text-4xl text-green-600 font-bold'
+                                strings={["Programmer", "Web Developer", "Coder"]}
+                                typeSpeed={50}
+                                backSpeed={40}
+                                loop={true}
+                            /></span>
+
+                    </div>
                     <br />
 
-                   <p className='text-justify text-lg '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
+                    {/* <p className='text-justify text-lg '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
                         I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <br /><span className='mt-10'>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
-                        </p>
+                        </p> */}
                     <br />
 
                     {/* <div className="btn mt-3 ">
     <button className='px-10 py-1 rounded-2xl cursor-pointer border-0 outline-0 text-white bg-green-600 font-bold'>CV</button>
 </div> */}
-                    <div className="icon space-y-2">
-                        <p className='text-lg font-semibold'> Available on</p>
+                    <div className="icon space-y-2 text-center mx-auto md:mx-0 ">
+                        <p className='text-lg font-semibold md:text-left'> Available on</p>
                         <ul className='flex space-x-6 text-3xl'>
-                            <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank"><li className='text-sky-600 cursor-pointer'><BsLinkedin  className='hover:text-sky-500'/></li></a>
-                            <a href="https://github.com/imran071202" target="_blank"><li className=' cursor-pointer'><FaGithub  className='hover:text-green-900'/></li></a>
+                            <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank"><li className='text-sky-600 cursor-pointer'><BsLinkedin className='hover:text-sky-500' /></li></a>
+                            <a href="https://github.com/imran071202" target="_blank"><li className=' cursor-pointer'><FaGithub className='hover:text-green-900' /></li></a>
                             <a href="https://x.com/Imran___02" target="_blank"><li className=' cursor-pointer'><FaXTwitter className='hover:text-green-900' /></li></a>
                             <a href="https://www.facebook.com/imran.shaikh.562433" target="_blank"><li className='text-blue-700 cursor-pointer'><FaFacebookSquare className='hover:text-sky-600' /></li></a>
                         </ul>
-                    </div>
-                </div>
+                    </div></div>
+
                 {/* image */}
-                <div className="right flex justify-center pt-5 md:mt-0 md:justify-end lg:justify-center items-center  md:h-[55vh] lg:h-[79vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2">
-                    <div className=" rounded-full md:mr-10 lg:mr-0 overflow-hidden h-60 w-65 md:h-82 md:w-85 border-1 border-green-200">
-                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-65 md:h-82 md:w-85 bg-center bg-cover' />
+                <div className="right pt-4 flex justify-center  md:mt-0 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2">
+                    <div className=" rounded-full h-60 w-60 md:h-85 md:w-86 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover  ">
+                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-60 md:h-85 md:w-86 bg-center bg-cover ' />
 
                     </div>
 
                 </div>
 
-            </motion.div> 
+            </motion.div>
             {/* <div className="partition border-b-1 mt-6 border-gray-300"></div> */}
         </>
     )

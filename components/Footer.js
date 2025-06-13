@@ -8,7 +8,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="Footer h-100 md:h-35 bg-[#232126] flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
+      <div className="Footer h-85 md:h-35 bg-[#232126] flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
 
        
         <div className="menu text-white flex justify-center mt-5 order-1 md:order-2  ">
