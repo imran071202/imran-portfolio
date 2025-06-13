@@ -1,22 +1,31 @@
 import React from 'react'
 import { GiPlayButton } from "react-icons/gi";
+import { motion } from "motion/react"
+
 const About = () => {
     return (
         <>
-            <div name="About" id='About' className=" bg-gradient-to-r from-slate-200 to-indigo-200 flex flex-col  justify-center items-center ">
+            <div
+                            // initial={{ x: "100%" }}
+                            // animate={{ x: "0%" }}
+                            //  transition={{ duration: 1 }} 
+                             name="About" id='About' className=" bg-gradient-to-r from-slate-200 to-indigo-200 flex flex-col  justify-center items-center text-center ">
               
                 <div className="   flex flex-col items-center  px-6 md:px-20 md:mb-10 mb-3 ">
                     <div className="headline mt-3 ">
                         <p className='text-3xl flex flex-col justify-center items-center font-bold mt-6 mb-2 md:mb-1'>About<span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span>
                         </p>
-                          <p className=' mt-5 md:mb-7 text-lg text-justify px-2 md:px-10 '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
-                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <span className=''>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
+                          <p className=' mt-5 md:mb-7 text-lg text-justify px-2 md:px-25 '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
+                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <span className=''>Thanks for visiting my portfolio, let's connect and create something awesome together.</span>
                         </p>
                         {/* 
                         <span className='text-md md:text-lg text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolore, dolor praesentium deleniti, accusamus officiis ratione amet expedita rerum elit aspernatur magni.</span> */}
                     </div>
                     <br />
-                    <div className="contain">
+                  <div
+                            initial={{ x: "50%" }}
+                            animate={{ x: "0%" }}
+                             transition={{ duration: 1 }}  className="contain">
                         <p className='text-2xl md:text-3xl text-green-800 font-bold text-center'>Education</p>
                         {/* college */}
                         <div className="border-1  hover:border-0  hover:text-green-950 mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">

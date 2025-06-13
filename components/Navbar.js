@@ -9,10 +9,10 @@ const Navbar = () => {
     const [menu, setmenu] = useState(false)
 
     const navMenu = [
-        {
-            id: 1,
-            text: "Home"
-        },
+        // {
+        //     id: 1,
+        //     text: "Home"
+        // },
         {
             id: 2,
             text: "About"
@@ -35,9 +35,9 @@ const Navbar = () => {
 
     return (
         <>
-            <div id='Home' className="nav  text-white bg-gradient-to-r from-indigo-950 to-slate-700 h-18 lg:h-20 md:pr-5  flex justify-between   ">
-                <div className="logo sm: w-1/3 md:w-1/4 h-full justify-center items-center font-semibold flex flex-col">
-                    <a href="/"><p className='text-2xl'>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
+            <div id='Home' className="nav fixed w-full  text-slate-100 bg-gradient-to-r from-indigo-950 to-slate-700 h-18 lg:h-17 md:pr-5  flex justify-between   ">
+                <div className="logo sm: w-1/3 md:w-1/4 h-full justify-center items-center font-semibold flex flex-col pl-5">
+                    <a href="/" className='hover:scale-110 transition-transform duration-300 cursor-pointer'><p className='text-2xl'>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
                     <p className='text-sm text-center'>Web Developer</p></a>
                 </div>
 
@@ -45,8 +45,9 @@ const Navbar = () => {
                 {/* desktop menu */}
                 <div className=" sm: hidden h-full  w-2/5 lg:flex  ">
                     <ul className='sm:hidden lg:flex w-full lg:justify-evenly lg:items-center'>
+                        <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'> Home</a>
                         {navMenu.map(({ id, text }) => (
-                           <li key={id} className='cursor-pointer text-lg font-semibold hover:border-b-2'>
+                           <li key={id} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'>
                             <Link to={text}
                             smooth={true}
                             duration={150}
@@ -60,8 +61,8 @@ const Navbar = () => {
                     {/* <div className="flex justify-center items-center w-10 mr-10"><BiSolidSun className='text-3xl cursor-pointer text-yellow-500' /></div> */}
 
                 </div>
-                <div onClick={() => setmenu(!menu)} className="flex justify-center items-center w-15 lg:hidden">
-                    {menu ? <IoClose className='text-4xl' /> : <TiThMenu className='text-2xl cursor-pointer' />}</div>
+                <div onClick={() => setmenu(!menu) } className="flex justify-center items-center w-15 lg:hidden">
+                    {menu ? <IoClose className='text-4xl' /> : <TiThMenu className='text-3xl cursor-pointer' />}</div>
 
                 {/* mobile menu */}
 
@@ -69,7 +70,8 @@ const Navbar = () => {
             {/* <div className="partition border-b-1  border-gray-300"></div> */}
 
             {
-            menu && <div className="menu py-8 bg-gradient-to-r from-blue-200 to-green-100  w-full absolute flex justify-center items-center lg:hidden">
+            menu && <div className="menu py-7 bg-gradient-to-r from-blue-400 to-green-200  w-full absolute top-19 flex flex-col justify-center items-center md:hidden lg:hidden">
+                <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer text-xl pb-6 font-semibold '> Home</a>
 
               <ul className='space-y-7 text-center '> {
                     navMenu.map(({ id, text }) => (
