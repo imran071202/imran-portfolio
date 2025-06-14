@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-// import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar'
 import Body from '@/components/Body'
 import About from '@/components/About'
 import Project from '@/components/Project'
@@ -14,6 +14,7 @@ const page = () => {
     <>
       {/* <Navbar /> */}
       <div>
+        <Navbar/>
         <Body />
         <About />
         <Project />

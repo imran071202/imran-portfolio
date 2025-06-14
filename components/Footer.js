@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="Footer h-85 md:h-25 bg-[#232126] flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
 
        
-        <div className="menu text-white flex justify-center mt-5 order-1 md:order-2  ">
+        <div className="menu text-center text-white flex justify-center mt-5 order-1 md:order-2  ">
           <ul className='flex space-y-5 flex-col md:flex-row justify-center md:space-x-10 md:ml-15 text-sm md:font-semibold'>
             <a href="#Body" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Home</li></a>
             <a href="#About" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>About</li></a>
