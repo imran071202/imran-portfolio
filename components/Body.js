@@ -16,7 +16,7 @@ const Body = () => {
                  transition={{ duration: 1.5 }}
 
 
-                id='Body' name="Home" className=" h-193 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
+                id='Body' name="Home" className=" h-195 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
 
               <motion.div
 
@@ -40,7 +40,7 @@ const Body = () => {
                                 typeSpeed={50}
                                 backSpeed={40}
                                 loop={true}
-                                
+
                             /></span>
 
                     </div>
@@ -54,7 +54,7 @@ const Body = () => {
                     {/* <div className="btn mt-3 ">
     <button className='px-10 py-1 rounded-2xl cursor-pointer border-0 outline-0 text-white bg-green-600 font-bold'>CV</button>
 </div> */}
-                    <div className="icon space-y-2 text-center mx-auto md:mx-0 md:w-1/3 ">
+                    <div className="icon pt-5 space-y-2 text-center mx-auto md:mx-0 md:w-1/3 ">
                         <p className='text-lg font-semibold md:text-left pb-0.5 '> Available on</p>
                         <ul className='flex space-x-6 text-3xl '>
                             <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank" className='hover:scale-120 transition-transform duration-300 cursor-pointer hover:text-pink-300'><li className='text-sky-400 cursor-pointer '><BsLinkedin className='hover:text-sky-600 ' /></li></a>
@@ -66,9 +66,9 @@ const Body = () => {
                 </motion.div>
 
                 {/* image */}
-                <div className=" right pt-10 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
-                    <div className="pic rounded-full h-60 w-60 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-9 border-slate-600 ">
-                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-60 md:h-85 md:w-88 bg-center bg-cover  ' />
+                <div className=" right pt-5 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
+                    <div className="pic rounded-full h-65 w-67 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-9 border-slate-600 ">
+                        <img src="./photo/imran.jpeg" alt="" className='h-65 w-67 md:h-85 md:w-88 bg-center bg-cover  ' />
 
                     </div>
 

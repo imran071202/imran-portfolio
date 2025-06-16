@@ -8,7 +8,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="Footer h-85 md:h-25 bg-[#232126] flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
+      <div className="Footer h-85 md:h-25 bg-gradient-to-r from-indigo-950 to-slate-700 flex flex-col md:flex-row md:justify-around justify-around items-center border-t-1 ">
 
        
         <div className="menu text-center text-white flex justify-center mt-5 order-1 md:order-2  ">
@@ -32,7 +32,7 @@ const Footer = () => {
  <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer' ><div className="logo order-3 md:order-1 text-white text-2xl md:ml-10 cursor-pointer"><p>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
           <p className='text-sm text-center'>Web Developer</p></div></a>
       </div>
-      <div className="h-10 md:h-8 bg-slate-950 flex justify-center items-center">
+      <div className="h-10 md:h-6 bg-slate-950 flex justify-center items-center">
 
         <ul className='text-sm text-white'>
 
