@@ -56,10 +56,9 @@ const Navbar = () => {
                     <p className='text-sm text-center'>Web Developer</p></a>
                 </div>
 
-
                 {/* desktop menu */}
-                <div className="  hidden md:block h-full  w-2/5 lg:flex  ">
-                    <ul className='hidden  md:block lg:flex w-full lg:justify-evenly lg:items-center'>
+                <div className="  hidden  h-full  w-2/5 md:flex  ">
+                    <ul className='hidden  md:flex  w-full md:justify-evenly md:items-center'>
                         <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'> Home</a>
                         {navMenu.map(({ id, text }) => (
                            <li key={id} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'>
@@ -76,7 +75,7 @@ const Navbar = () => {
                     {/* <div className="flex justify-center items-center w-10 mr-10"><BiSolidSun className='text-3xl cursor-pointer text-yellow-500' /></div> */}
 
                 </div>
-                <div onClick={() => setmenu(!menu) } className="flex justify-center items-center w-15 lg:hidden">
+                <div onClick={() => setmenu(!menu) } className="flex justify-center items-center w-15 md:hidden">
                     {menu ? <IoClose className='text-4xl' /> : <TiThMenu className='text-3xl cursor-pointer' />}</div>
 
                 {/* mobile menu */}
@@ -90,12 +89,12 @@ const Navbar = () => {
                  transition={{ duration: 0.5 }}
                  whileTap={{ scale: 1.1 }}
 
-             className="menu h-screen top-16 pb-30  bg-gradient-to-r from-slate-300 to-indigo-300  w-full fixed z-50  flex flex-col justify-center items-center md:hidden lg:hidden xl:hidden 2xl:hidden">
-                <a href="#Body" onClick={()=>setmenu(false)} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-xl pb-9 font-bold '> Home</a>
+             className="menu h-screen top-16 pb-30  bg-gradient-to-r from-slate-300 to-indigo-300  w-full fixed z-50  flex flex-col justify-center items-center md:hidden">
+                <a href="#Body" onClick={()=>setmenu(false)} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-xl pb-9 font-bold md:hidden '> Home</a>
 
-              <ul  className='space-y-9 text-center  '> {
+              <ul  className='space-y-9 text-center md:hidden '> {
                     navMenu.map(({ id, text }) => (
-                        <li  key={id} className='text-xl font-bold '>
+                        <li  key={id} className='text-xl font-bold md:hidden '>
                             <Link onClick={()=>setmenu(false)}
                              to={text}
                             smooth={true}
