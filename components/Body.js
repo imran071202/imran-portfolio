@@ -16,7 +16,7 @@ const Body = () => {
                  transition={{ duration: 1.5 }}
 
 
-                id='Body' name="Home" className=" h-190 text-center md:text-left md:h-170 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
+                id='Body' name="Home" className=" h-193 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
 
               <motion.div
 
@@ -30,13 +30,7 @@ const Body = () => {
                         <span className="blog-title-emoji text-5xl ">👋🏼</span>
                     </h1> <span className=' text-xl md:text-3xl '>Hello I'm</span></span>
 
-
                     <span className=' text-4xl md:text-7xl font-bold pb-2 hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '>Imran Shaikh</span>
-
-
-
-
-
 
                     <div className="space-x-2 pt-2 h-15 mt-0.5 flex items-center  flex-col md:flex-row hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 "> <span className='font-semibold text-lg md:text-3xl'>Welcome In My Feed I'm</span>
                         <span className='font-semibold text-lg md:text-3xl  '> <span></span>
@@ -46,6 +40,7 @@ const Body = () => {
                                 typeSpeed={50}
                                 backSpeed={40}
                                 loop={true}
+                                
                             /></span>
 
                     </div>
@@ -71,9 +66,9 @@ const Body = () => {
                 </motion.div>
 
                 {/* image */}
-                <div className=" right pt-10 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2">
-                    <div className=" rounded-full h-60 w-60 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer ">
-                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-60 md:h-85 md:w-88 bg-center bg-cover ' />
+                <div className=" right pt-10 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
+                    <div className="pic rounded-full h-60 w-60 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-9 border-slate-600 ">
+                        <img src="./photo/imran.jpeg" alt="" className='h-60 w-60 md:h-85 md:w-88 bg-center bg-cover  ' />
 
                     </div>
 

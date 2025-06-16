@@ -68,7 +68,7 @@ const Resume = () => {
 
     <div className="btn  h-50 w-80 md:w-120 flex flex-col justify-center items-center">
        
-        <div className="docBtn"><button onClick={handleDownloadJpg} className='bg-red-100  hover:bg-red-300 hover:text-red-900 cursor-pointer px-20 py-5 rounded-lg font-semibold text-xl md:text-2xl mt-5 flex text-black'><FaFileDownload className='text-red-700 mt-1 mr-2 md:mr-5'/>Download Jpg</button></div>
+        <div className="docBtn"><button onClick={handleDownloadJpg} className='bg-white  hover:bg-slate-200 hover:border-1 cursor-pointer px-20 py-5 rounded-lg font-semibold text-xl md:text-2xl mt-5 flex text-black'><FaFileDownload className='text-red-700 mt-1 mr-2 md:mr-5'/>Download Jpg</button></div>
 
          <div className="pdfBtn"><button onClick={handleDownloadPdf} className='bg-red-500 hover:bg-red-700 hover:text-white cursor-pointer px-20 py-5 rounded-lg font-semibold text-xl md:text-2xl mt-5 flex '><FaFileDownload className='mt-1 mr-3 md:mr-5'/>Download Pdf</button></div>
     </div>

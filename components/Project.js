@@ -41,7 +41,7 @@ const Project = () => {
                     <div className="w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer"> <img src="./photo/Msi.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />
                         <img src="./photo/laptop1.png" className='w-90 md:w-165' alt="" />
                     </div>
-                    <div className="w-90 md:w-140  h-90 md:h-80 flex justify-center flex-col items-center px-4 text-justify "><p> <b className='text-3xl text-green-700 '> MSI Website Homepage</b><br /><span className='text-lg'>I recreated the MSI (Micro-Star International) homepage to practice designing a real-world tech brand landing page. The goal was to capture the gaming aesthetic and layout style of a leading hardware company while using modern frontend tools.</span> <br /><b className='font-semibold'> Technologies Used:
+                    <div className="w-90 md:w-140  h-90 md:h-80 flex justify-center flex-col items-center px-4  "><p> <b className='text-3xl text-green-700 '> MSI Website Homepage</b><br /><span className='text-lg text-justify '>I recreated the MSI (Micro-Star International) homepage to practice designing a real-world tech brand landing page. The goal was to capture the gaming aesthetic and layout style of a leading hardware company while using modern frontend tools.</span> <br /><b className='font-semibold'> Technologies Used:
                         HTML,
 
                         CSS
@@ -55,7 +55,7 @@ const Project = () => {
                     <div className=" w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer"> <img src="./photo/amazon.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />
                         <img src="./photo/laptop1.png" className='w-90 md:w-165' alt="" />
                     </div>
-                    <div className="w-90 md:w-140 h-90 md:h-80 flex justify-center flex-col items-center px-4 text-justify "><p><b className='text-3xl text-green-700 text-left'>Amazon Clone E-commerce </b><br /><span className='text-lg'>The Amazon Clone project focuses on replicating the layout and key components of one of the largest e-commerce platforms. This was a great exercise in building clean, scalable UIs and understanding product listing structure</span><br /><b className='font-semibold'>Technologies Used:
+                    <div className="w-90 md:w-140 h-90 md:h-80 flex justify-center flex-col items-center px-4"><p><b className='text-3xl text-green-700 text-left'>Amazon Clone E-commerce </b><br /><span className='text-lg text-justify'>The Amazon Clone project focuses on replicating the layout and key components of one of the largest e-commerce platforms. This was a great exercise in building clean, scalable UIs and understanding product listing structure</span><br /><b className='font-semibold'>Technologies Used:
                         HTML,
 
                         CSS,

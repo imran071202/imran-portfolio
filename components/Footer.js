@@ -29,7 +29,7 @@ const Footer = () => {
           <a href="#1"  className='cursor-pointer text-red-400 hover:scale-115 transition-transform duration-300'><FaInstagram /></a>
           <a href="https://www.facebook.com/imran.shaikh.562433"target="_blank"  className='cursor-pointer text-blue-500 hover:scale-115 transition-transform duration-300'><FaFacebookSquare /></a></ul>
         </div>
- <a href="#Home" className='hover:scale-110 transition-transform duration-300 cursor-pointer' ><div className="logo order-3 md:order-1 text-white text-2xl md:ml-10 cursor-pointer"><p>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
+ <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer' ><div className="logo order-3 md:order-1 text-white text-2xl md:ml-10 cursor-pointer"><p>&lt;Imr<span className='text-green-600'>an</span>/&gt;</p>
           <p className='text-sm text-center'>Web Developer</p></div></a>
       </div>
       <div className="h-10 md:h-8 bg-slate-950 flex justify-center items-center">
