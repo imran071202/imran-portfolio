@@ -58,10 +58,10 @@ const Navbar = () => {
 
                 {/* desktop menu */}
                 <div className="  hidden  h-full  w-2/5 md:flex  ">
-                    <ul className='hidden  md:flex  w-full md:justify-evenly md:items-center'>
-                        <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'> Home</a>
+                    <ul className='hidden md:flex  w-full md:justify-evenly md:items-center'>
+                        <a href="#Body" className='hover:scale-110 transition-transform duration-300 cursor-pointer text-base font-semibold hover:border-b-2'> Home</a>
                         {navMenu.map(({ id, text }) => (
-                           <li key={id} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-lg font-semibold hover:border-b-2'>
+                           <li key={id} className='hover:scale-110 transition-transform duration-300 cursor-pointer text-base font-semibold hover:border-b-2'>
                             <Link to={text}
                             smooth={true}
                             duration={150}

@@ -67,8 +67,8 @@ const Body = () => {
 
                 {/* image */}
                 <div className=" right pt-5 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
-                    <div className="pic rounded-full h-65 w-67 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-9 border-slate-600 ">
-                        <img src="./photo/imran.jpeg" alt="" className='h-65 w-67 md:h-85 md:w-88 bg-center bg-cover  ' />
+                    <div className="pic rounded-full h-65 w-68 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-5 border-slate-600 ">
+                        <img src="./photo/imran.jpeg" alt="" className='h-65 w-68 md:h-85 md:w-88 bg-center bg-cover  ' />
 
                     </div>
 
