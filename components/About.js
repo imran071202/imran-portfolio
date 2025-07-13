@@ -60,6 +60,7 @@ const About = () => {
                         <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>PHP</p>
                         <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Wordpress</p>
                         <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>MongoDB</p>
+                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>SQl</p>
                         <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Github</p>
                         <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Responsive Design
                         </p>
