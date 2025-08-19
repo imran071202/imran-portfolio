@@ -1,30 +1,41 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { ReactTyped, Typed } from "react-typed";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { motion } from "motion/react"
+import { FaFileDownload } from "react-icons/fa";
+
 
 const Body = () => {
+ const [isOpen, setisOpen] = useState()
+
+ const handleDownloadPdf = () => {
+    const link = document.createElement('a');
+    link.href = './photo/Imran_Shaikh_cv.pdf'; // Replace with your image path
+    link.download = './photo/Imran_Shaikh_cv.pdf';
+    link.click();
+  };
+
     return (
         <>
             <motion.div
                 initial={{ y: "100%" }}
                 animate={{ y: "0%" }}
-                 transition={{ duration: 1.5 }}
+                transition={{ duration: 1.5 }}
 
 
-                id='Body' name="Home" className=" h-195 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
+                id='Body' name="Home" className=" h-210 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
 
-              <motion.div
+                <motion.div
 
-          initial={{ opacity: 0, x: 100 }}
-          transition={{ duration: 3 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-           className="left md:pl-25  mt-3 md:mt-0  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
+                    initial={{ opacity: 0, x: 100 }}
+                    transition={{ duration: 3 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="left md:pl-25  mt-3 md:mt-0  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
 
                     <span className='text-3xl hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '><h1 className="blog-title">
                         <span className="blog-title-emoji text-5xl ">👋🏼</span>
@@ -45,6 +56,8 @@ const Body = () => {
 
                     </div>
                     <br />
+                    
+                     <div className="pdfBtn mx-auto md:mx-0"><button onClick={handleDownloadPdf} className='bg-gradient-to-r from-red-700 to-red-400 hover:bg-red-700 hover:text-white cursor-pointer px-5 py-3 rounded-lg font-semibold text-md md:text-md mt-5 flex '><FaFileDownload className='mt-1 mr-3 md:mr-5' />Download Pdf</button></div>
 
                     {/* <p className='text-justify text-lg '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
                         I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <br /><span className='mt-10'>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
@@ -67,10 +80,12 @@ const Body = () => {
 
                 {/* image */}
                 <div className=" right pt-5 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
-                    <div className="pic rounded-full h-65 w-68 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-5 border-slate-600 ">
+                    <motion.div
+  
+                        className="pic rounded-full h-65 w-68 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-5 border-slate-600 shadow-2xl shadow-black">
                         <img src="./photo/imran.jpeg" alt="" className='h-65 w-68 md:h-85 md:w-88 bg-center bg-cover  ' />
 
-                    </div>
+                    </motion.div>
 
                 </div>
 

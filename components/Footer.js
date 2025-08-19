@@ -23,7 +23,7 @@ const Footer = () => {
             <a href="#Body" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Home</li></a>
             <a href="#About" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>About</li></a>
             <a href="#Project" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Project</li></a>
-            <a href="#Resume" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Resume</li></a>
+            {/* <a href="#Resume" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Resume</li></a> */}
             <a href="#Contact" className='hover:scale-115 transition-transform duration-300 cursor-pointer '><li id='' className='hover:underline hover:scale-100  hover:text-green-200'>Contact</li></a>
           </ul>
         </div>

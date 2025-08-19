@@ -7,6 +7,22 @@ const Project = () => {
                 <p className=' bg-gradient-to-r from-slate-200 to-indigo-200 text-3xl flex flex-col justify-center items-center font-bold mt-10 mb-7 md:mb-12'>Projects <span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span></p>
                 {/* 1 */}
                 <div className="projectOne   w-full items-center flex flex-col md:flex-row justify-center mb-5 md:mb-40">
+                    <div className=" w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer"> <img src="./photo/job.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />
+                        <img src="./photo/laptop1.png" className='w-90 md:w-165' alt="" />
+                    </div>
+                    <div className="w-90  md:w-145 h-100 md:h-100  flex justify-around flex-col items-center text-justify px-6 "><p><b className='text-3xl text-green-700 '> Job Portal Web Application</b> <br /><span className='text-lg'> 
+                        Built a full-stack job portal where users can register, login, browse jobs, and apply to openings.
+                        Developed RESTful APIs in Express.js with MongoDB for job postings, applications, and user profiles. <br /><b className='font-semibold'>Technologies Used:
+                            React.js,  Node.js,  Express.js, MongoDB, Tailwind CSS, Redux, shadcn ui.
+                            </b></span> </p>
+                        {/* <button>Click</button> */}
+                    </div>
+                </div>
+
+
+
+
+                <div className="projectOne   w-full items-center flex flex-col md:flex-row justify-center mb-5 md:mb-40">
                     <div className=" w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer"> <img src="./photo/homeroots.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />
                         <img src="./photo/laptop1.png" className='w-90 md:w-165' alt="" />
                     </div>
@@ -21,6 +37,10 @@ const Project = () => {
                         {/* <button>Click</button> */}
                     </div>
                 </div>
+
+
+
+
                 {/* 2 */}
                 <div className="projectOne w-full items-center flex flex-col md:flex-row justify-center mb-5 md:mb-40">
                     <div className=" w-90 md:w-160 lg:w-175 flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer"> <img src="./photo/net.png" className='h-45 w-80 md:h-72 md:w-130 lg:w-140 border-10 border-slate-600 rounded-t-md' alt="" />
@@ -46,7 +66,7 @@ const Project = () => {
 
                         CSS
 
-                        </b></p>
+                    </b></p>
                         {/* <button>Click</button> */}
                     </div>
                 </div>

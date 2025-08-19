@@ -8,6 +8,7 @@ import Resume from '@/components/Resume'
 import Contact from "@/components/Contact"
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast';
+import Aboutt from '@/components/Aboutt'
 
 const page = () => {
   return (
@@ -17,8 +18,9 @@ const page = () => {
         <Navbar/>
         <Body />
         <About />
+        {/* <Aboutt/> */}
         <Project />
-        <Resume />
+        {/* <Resume /> */}
         <Contact />
         <Footer />
       </div>

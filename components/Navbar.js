@@ -36,12 +36,9 @@ const Navbar = () => {
             id: 3,
             text: "Project"
         },
+        
         {
             id: 4,
-            text: "Resume"
-        },
-        {
-            id: 5,
             text: "Contact"
         },]
 
