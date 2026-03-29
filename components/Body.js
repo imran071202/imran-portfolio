@@ -1,83 +1,446 @@
 "use client"
-import React from 'react'
-import { ReactTyped, Typed } from "react-typed";
+import React, { useState, useEffect, useRef } from 'react'
+import { ReactTyped } from "react-typed";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
-import { motion } from "motion/react"
+import { motion, useMotionValue, useTransform, useSpring } from "motion/react"
+import { FaFileDownload } from "react-icons/fa";
 
+/* ─── Particle field ─────────────────────────────────────────── */
+const Particles = () => {
+  const canvasRef = useRef(null)
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    let w = canvas.width = window.innerWidth
+    let h = canvas.height = canvas.parentElement?.offsetHeight || 700
+    const particles = Array.from({ length: 80 }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * 0.6 + 0.2,
+    }))
+    let raf
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h)
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy
+        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0
+        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(212,175,55,${p.a})`
+        ctx.fill()
+      })
+      // draw connecting lines
+      particles.forEach((a, i) => {
+        particles.slice(i + 1).forEach(b => {
+          const d = Math.hypot(a.x - b.x, a.y - b.y)
+          if (d < 120) {
+            ctx.beginPath()
+            ctx.moveTo(a.x, a.y)
+            ctx.lineTo(b.x, b.y)
+            ctx.strokeStyle = `rgba(212,175,55,${0.08 * (1 - d / 120)})`
+            ctx.lineWidth = 0.5
+            ctx.stroke()
+          }
+        })
+      })
+      raf = requestAnimationFrame(draw)
+    }
+    draw()
+    const onResize = () => {
+      w = canvas.width = window.innerWidth
+      h = canvas.height = canvas.parentElement?.offsetHeight || 700
+    }
+    window.addEventListener('resize', onResize)
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize) }
+  }, [])
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
+}
+
+/* ─── 3D tilt card for avatar ────────────────────────────────── */
+const TiltCard = ({ children }) => {
+  const ref = useRef(null)
+  const x = useMotionValue(0), y = useMotionValue(0)
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [15, -15]), { stiffness: 200, damping: 20 })
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-15, 15]), { stiffness: 200, damping: 20 })
+  const onMove = e => {
+    const rect = ref.current.getBoundingClientRect()
+    x.set((e.clientX - rect.left) / rect.width - 0.5)
+    y.set((e.clientY - rect.top) / rect.height - 0.5)
+  }
+  const onLeave = () => { x.set(0); y.set(0) }
+  return (
+    <motion.div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', perspective: 800 }}
+      className="cursor-pointer">
+      {children}
+    </motion.div>
+  )
+}
+
+/* ─── Skill badge ─────────────────────────────────────────────── */
+const Badge = ({ label, delay }) => (
+  <motion.span
+    initial={{ opacity: 0, scale: 0.7 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ delay, duration: 0.4 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.1, y: -3 }}
+    className="badge px-3 py-1 text-xs font-semibold rounded-full border border-yellow-500/40 text-yellow-300 bg-yellow-500/10 backdrop-blur-sm hover:bg-yellow-500/20 transition-colors duration-200">
+    {label}
+  </motion.span>
+)
+
+/* ─── Stat counter ────────────────────────────────────────────── */
+const Stat = ({ value, label, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.5 }}
+    viewport={{ once: true }}
+    className="text-center">
+    <div className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-600">{value}</div>
+    <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mt-0.5">{label}</div>
+  </motion.div>
+)
+
+/* ─── Main Component ─────────────────────────────────────────── */
 const Body = () => {
-    return (
-        <>
-            <motion.div
-                initial={{ y: "100%" }}
-                animate={{ y: "0%" }}
-                 transition={{ duration: 1.5 }}
+  const [isOpen, setIsOpen] = useState()
 
+  const handleDownloadPdf = () => {
+    const link = document.createElement('a')
+    link.href = './photo/Imran_Shaikh_cv.pdf'
+    link.download = './photo/Imran_Shaikh_cv.pdf'
+    link.click()
+  }
 
-                id='Body' name="Home" className=" h-195 text-center md:text-left md:h-175 text-white main bg-gradient-to-r from-slate-700 to-indigo-950  md:mt-0 px-3 md:px-0 flex flex-col md:flex-row justify-center md:justify-center ">
+//   const skills = [
+//     'React.js', 'Next.js', 'Node.js', 'Express.js',
+//     'MongoDB', 'PostgreSQL', 'TypeScript', 'JavaScript',
+//     'Tailwind CSS', 'PHP', 'HTML5', 'CSS3', 'REST API', 'Git'
+//   ]
 
-              <motion.div
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
-          initial={{ opacity: 0, x: 100 }}
-          transition={{ duration: 3 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-           className="left md:pl-25  mt-3 md:mt-0  md:w-6/11 flex justify-center md:mr-4 flex-col px-3 py-5 order-2 md:ml-10 lg:ml-0 ">
+        #Body {
+          font-family: 'Rajdhani', sans-serif;
+          background: #000000;
+          position: relative;
+          overflow: hidden;
+        }
 
-                    <span className='text-3xl hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '><h1 className="blog-title">
-                        <span className="blog-title-emoji text-5xl ">👋🏼</span>
-                    </h1> <span className=' text-xl md:text-3xl '>Hello I'm</span></span>
+        /* ── gold grid overlay ── */
+        #Body::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+          background-size: 60px 60px;
+          z-index: 0;
+        }
 
-                    <span className=' text-4xl md:text-7xl font-bold pb-2 hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 '>Imran Shaikh</span>
+        /* ── radial glow ── */
+        #Body::after {
+          content: '';
+          position: absolute;
+          top: -20%;
+          left: -10%;
+          width: 70%;
+          height: 80%;
+          background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%);
+          z-index: 0;
+          pointer-events: none;
+        }
 
-                    <div className="space-x-2 pt-2 h-15 mt-0.5 flex items-center  flex-col md:flex-row hover:scale-95 transition-transform duration-300 cursor-pointer hover:text-pink-300 "> <span className='font-semibold text-lg md:text-3xl'>Welcome In My Feed I'm</span>
-                        <span className='font-semibold text-lg md:text-3xl  '> <span></span>
-                            <ReactTyped
-                                className='text-3xl md:text-4xl text-green-600 font-bold'
-                                strings={["Programmer", "Web Developer", "Coder"]}
-                                typeSpeed={50}
-                                backSpeed={40}
-                                loop={true}
+        .gold-title {
+          font-family: 'Cinzel Decorative', serif;
+          background: linear-gradient(135deg, #f5d060 0%, #d4af37 30%, #fff8dc 55%, #d4af37 75%, #b8860b 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: none;
+          filter: drop-shadow(0 0 18px rgba(212,175,55,0.45));
+        }
 
-                            /></span>
+        .avatar-ring {
+          background: conic-gradient(from 0deg, #d4af37, #fff8dc, #b8860b, #d4af37, #fff8dc, #d4af37);
+          animation: spin-ring 6s linear infinite;
+        }
+        @keyframes spin-ring { to { transform: rotate(360deg); } }
 
-                    </div>
-                    <br />
+        .avatar-inner {
+          transform: translateZ(30px);
+        }
 
-                    {/* <p className='text-justify text-lg '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
-                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <br /><span className='mt-10'>Thanks for visiting my portfolio, let's connect and create something awesome together!</span>
-                        </p> */}
-                    <br />
+        .glow-btn {
+          background: linear-gradient(135deg, #d4af37, #b8860b);
+          box-shadow: 0 0 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+          transition: all 0.3s ease;
+        }
+        .glow-btn:hover {
+          box-shadow: 0 0 35px rgba(212,175,55,0.7), inset 0 1px 0 rgba(255,255,255,0.3);
+          transform: translateY(-2px) scale(1.03);
+        }
 
-                    {/* <div className="btn mt-3 ">
-    <button className='px-10 py-1 rounded-2xl cursor-pointer border-0 outline-0 text-white bg-green-600 font-bold'>CV</button>
-</div> */}
-                    <div className="icon pt-5 space-y-2 text-center mx-auto md:mx-0 md:w-1/3 ">
-                        <p className='text-lg font-semibold md:text-left pb-0.5 '> Available on</p>
-                        <ul className='flex space-x-6 text-3xl '>
-                            <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank" className='hover:scale-120 transition-transform duration-300 cursor-pointer hover:text-pink-300'><li className='text-sky-400 cursor-pointer '><BsLinkedin className='hover:text-sky-600 ' /></li></a>
-                            <a href="https://github.com/imran071202" target="_blank" className='hover:scale-120 transition-transform duration-300 cursor-pointer'><li className=' cursor-pointer '><FaGithub className='hover:text-red-200 ' /></li></a>
-                            <a href="https://x.com/Imran___02" target="_blank" className='hover:scale-120 transition-transform duration-300 cursor-pointer'><li className=' cursor-pointer '><FaXTwitter className='hover:text-orange-200 ' /></li></a>
-                            <a href="https://www.facebook.com/imran.shaikh.562433" target="_blank" className='hover:scale-120 transition-transform duration-300 cursor-pointer'><li className='text-blue-600  cursor-pointer'><FaFacebookSquare className='hover:text-sky-500 ' /></li></a>
-                        </ul>
-                    </div>
+        .social-btn {
+          width: 44px; height: 44px;
+          display: flex; align-items: center; justify-content: center;
+          border-radius: 50%;
+          border: 1px solid rgba(212,175,55,0.3);
+          background: rgba(212,175,55,0.05);
+          backdrop-filter: blur(8px);
+          transition: all 0.3s ease;
+          color: #d4af37;
+          font-size: 1.2rem;
+        }
+        .social-btn:hover {
+          border-color: #d4af37;
+          background: rgba(212,175,55,0.15);
+          box-shadow: 0 0 16px rgba(212,175,55,0.5);
+          transform: translateY(-4px) scale(1.1);
+        }
+
+        .divider-gold {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .status-dot {
+          width: 8px; height: 8px;
+          background: #22c55e;
+          border-radius: 50%;
+          box-shadow: 0 0 8px #22c55e;
+          animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+          0%,100% { box-shadow: 0 0 6px #22c55e; }
+          50% { box-shadow: 0 0 14px #22c55e, 0 0 24px #22c55e55; }
+        }
+
+        .corner-bracket::before, .corner-bracket::after,
+        .corner-bracket > span::before, .corner-bracket > span::after {
+          content: '';
+          position: absolute;
+          width: 20px; height: 20px;
+          border-color: #d4af37;
+          border-style: solid;
+        }
+        .corner-bracket::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .corner-bracket::after  { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .corner-bracket > span::before { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .corner-bracket > span::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+      `}</style>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        id='Body'
+        name="Home"
+        className="relative min-h-screen w-full text-white flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-5 md:px-12 lg:px-24 py-16 md:py-0">
+
+        {/* Particle canvas */}
+        <Particles />
+
+        {/* ── LEFT CONTENT ─────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-xl w-full">
+
+          {/* Status pill
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-yellow-500/25 bg-yellow-500/5 backdrop-blur-sm">
+            <span className="status-dot" />
+            <span className="text-xs text-yellow-400/80 tracking-widest uppercase font-semibold">Available for Work</span>
+          </motion.div> */}
+
+          {/* Greeting */}
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
+            className="text-2xl mb-1 flex items-center gap-2 text-gray-300 md:mt-10">
+            <span className="text-3xl">👋🏼</span>
+            <span className="font-light tracking-wide">Hello, I'm</span>
+          </motion.div>
+
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="gold-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-2">
+            Imran Shaikh
+          </motion.h1>
+
+          {/* Typed roles */}
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
+            className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-1 mb-5 text-lg md:text-2xl font-semibold text-gray-300">
+            <span>I'm a</span>
+            <ReactTyped
+              className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500"
+              strings={["Full Stack Developer", "React.js Expert", "Node.js Engineer", "Programmer"]}
+              typeSpeed={50}
+              backSpeed={35}
+              loop={true}
+            />
+          </motion.div>
+
+          <div className="divider-gold w-full md:w-3/4 mb-6" />
+
+          {/* Skills badges
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center md:justify-start gap-2 mb-7">
+            {skills.map((s, i) => <Badge key={s} label={s} delay={i * 0.04} />)}
+          </motion.div> */}
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex gap-6 md:gap-10 mb-8 px-5 py-4 rounded-xl border border-yellow-500/15 bg-yellow-500/5 backdrop-blur-sm w-full md:w-auto">
+            <Stat value="1+" label="Years Exp." delay={0.1} />
+            <div className="w-px bg-yellow-500/20" />
+            <Stat value="10+" label="Projects" delay={0.2} />
+            <div className="w-px bg-yellow-500/20" />
+            <Stat value="BCA" label="Graduate" delay={0.3} />
+            <div className="w-px bg-yellow-500/20" />
+            <Stat value="10+" label="Technologies" delay={0.4} />
+          </motion.div>
+
+          {/* Download CV button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mb-8">
+            <button
+              onClick={handleDownloadPdf}
+              className="glow-btn flex items-center gap-3 px-7 py-3.5 rounded-lg text-black font-bold text-base tracking-wide">
+              <FaFileDownload className="text-lg" />
+              Download Resume
+            </button>
+          </motion.div>
+
+          {/* Social icons */}
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">Find me on</p>
+            <ul className="flex items-center gap-3">
+              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
+                <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank" className="social-btn" aria-label="LinkedIn">
+                  <BsLinkedin style={{ color: '#0ea5e9' }} />
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
+                <a href="https://github.com/imran071202" target="_blank" className="social-btn" aria-label="GitHub">
+                  <FaGithub style={{ color: '#e2e8f0' }} />
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
+                <a href="https://x.com/Imran___02" target="_blank" className="social-btn" aria-label="X/Twitter">
+                  <FaXTwitter style={{ color: '#e2e8f0' }} />
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
+                <a href="https://www.facebook.com/imran.shaikh.562433" target="_blank" className="social-btn" aria-label="Facebook">
+                  <FaFacebookSquare style={{ color: '#3b82f6' }} />
+                </a>
+              </motion.li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* ── RIGHT — AVATAR ───────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="relative z-10 flex justify-center items-center order-first md:order-last mb-4 md:mb-0">
+
+          <TiltCard>
+            {/* Outer decorative glow ring */}
+            <div className="relative flex items-center justify-center  mt-5 md:mt-0">
+              {/* Spinning gradient ring */}
+              <div className="avatar-ring absolute rounded-full"
+                style={{ width: 'calc(100% + 8px)', height: 'calc(100% + 8px)', top: '-12px', left: '-4px' }} />
+
+              {/* Corner bracket frame */}
+              <div className="corner-bracket relative p-2" style={{ transform: 'translateZ(20px)' }}>
+                <span />
+                {/* Avatar image */}
+                <motion.div
+                  className="avatar-inner rounded-2xl overflow-hidden"
+                  style={{
+                    width: '250px', height: '270px',
+                    boxShadow: '0 0 40px rgba(212,175,55,0.3), 0 0 80px rgba(212,175,55,0.1), inset 0 0 20px rgba(0,0,0,0.5)',
+                  }}>
+                  <img
+                    src="./photo/imran-removebg.png"
+                    alt="Imran Shaikh"
+                    className="w-full h-full object-cover object-center"
+                    style={{ filter: 'brightness(1.05) contrast(1.05)' }}
+                  />
+                  {/* gold overlay sheen */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/5 pointer-events-none" />
                 </motion.div>
+              </div>
 
-                {/* image */}
-                <div className=" right pt-5 flex justify-center  md:mt-18 md:justify-center lg:justify-center md:items-start md:pt-30 lg:pt-25 items-center  md:h-[50vh] lg:h-[70vh]  md:w-5/10 lg:w-3/10 xl:w-2.5/10 2xl:w-2/10  order-1 md:order-2 ">
-                    <div className="pic rounded-full h-65 w-68 md:h-85 md:w-88 md:mr-10 lg:mr-0 overflow-hidden  bg-center bg-cover hover:scale-115 transition-transform duration-300 cursor-pointer border-5 border-slate-600 ">
-                        <img src="./photo/imran.jpeg" alt="" className='h-65 w-68 md:h-85 md:w-88 bg-center bg-cover  ' />
+              {/* Floating badge — Full Stack */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                className="absolute -bottom-4 -left-8 px-3 py-1.5 rounded-lg text-xs font-bold text-black bg-gradient-to-r from-yellow-300 to-yellow-500 shadow-lg shadow-yellow-500/30"
+                style={{ zIndex: 20 }}>
+                Full Stack Developer
+              </motion.div>
 
-                    </div>
+              {/* Floating badge — Open to Work */}
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', delay: 0.5 }}
+                className="absolute -top-4 -right-8 px-3 py-1.5 rounded-lg text-xs font-bold border border-yellow-500/40 text-yellow-300 bg-black/60 backdrop-blur-sm shadow-lg"
+                style={{ zIndex: 20 }}>
+                {/* BCA 2024 🎓 */}
+              </motion.div>
+            </div>
+          </TiltCard>
 
-                </div>
+          {/* decorative background glow behind avatar */}
+          <div className="absolute rounded-full pointer-events-none"
+            style={{
+              width: '320px', height: '320px',
+              background: 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)',
+              zIndex: 0,
+              filter: 'blur(20px)',
+            }} />
+        </motion.div>
 
-            </motion.div>
-            {/* <div className="partition border-b-1 mt-6 border-gray-300"></div> */}
-        </>
-    )
+      </motion.div>
+    </>
+  )
 }
 
 export default Body
