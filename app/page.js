@@ -8,6 +8,7 @@ import Resume from '@/components/Resume'
 import Contact from "@/components/Contact"
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const page = () => {
   return (
@@ -18,7 +19,7 @@ const page = () => {
         <Body />
         <About />
         <Project />
-        <Resume />
+        {/* <Resume /> */}
         <Contact />
         <Footer />
       </div>

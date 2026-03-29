@@ -1,75 +1,485 @@
-import React from 'react'
-import { GiPlayButton } from "react-icons/gi";
+"use client"
+import React, { useState, useEffect } from 'react'
 import { motion } from "motion/react"
 
+const skills = [
+  { name: "HTML",              icon: "🌐" },
+  { name: "CSS",               icon: "🎨" },
+  { name: "JavaScript",       icon: "⚡" },
+  { name: "Python",           icon: "🐍" },
+  { name: "Tailwind CSS",     icon: "💨" },
+  { name: "React",            icon: "⚛️" },
+  { name: "Next.js",          icon: "▲"  },
+  { name: "Node.js",          icon: "🟢" },
+  { name: "PHP",              icon: "🐘" },
+  { name: "MongoDB",          icon: "🍃" },
+  { name: "WordPress",        icon: "📝" },
+  { name: "GitHub",           icon: "🐙" },
+  { name: "Responsive Design",icon: "📱" },
+]
+
+const education = [
+  {
+    degree:    "Bachelor of Computer Applications (BCA)",
+    institute: "JIS College of Engineering",
+    period:    "2021 – 2024",
+    location:  "Kalyani, Nadia, WB",
+    passing:   "2024",
+    icon:      "🎓",
+    tag:       "University",
+  },
+  {
+    degree:    "WBCHSE (12th)",
+    institute: "Kabi Bijoylal HS Institute",
+    period:    "2019 – 2021",
+    location:  "Krishnanagar, Nadia, WB",
+    passing:   "2021",
+    icon:      "📚",
+    tag:       "Higher Secondary",
+  },
+  {
+    degree:    "WBBSE (10th)",
+    institute: "Don Bosco High School",
+    period:    "2009 – 2019",
+    location:  "Krishnanagar, Nadia, WB",
+    passing:   "2019",
+    icon:      "🏫",
+    tag:       "Secondary",
+  },
+]
+
+/* ── Section heading ─────────────────────────────────────────── */
+const SectionHeading = ({ title }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="flex flex-col items-center mb-12"
+  >
+    <h2 style={{
+      fontFamily: "'Cinzel', serif",
+      fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+      fontWeight: 900,
+      background: 'linear-gradient(135deg, #f5d060 0%, #d4af37 40%, #fffacd 60%, #b8860b 100%)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
+      filter: 'drop-shadow(0 0 12px rgba(212,175,55,0.45))',
+      letterSpacing: '0.08em',
+      textAlign: 'center',
+    }}>{title}</h2>
+    <div style={{
+      width: 70, height: 2, marginTop: 12,
+      background: 'linear-gradient(90deg, transparent, #d4af37, transparent)',
+    }} />
+    <div style={{
+      width: 30, height: 2, marginTop: 5,
+      background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent)',
+    }} />
+  </motion.div>
+)
+
+/* ── Main ────────────────────────────────────────────────────── */
 const About = () => {
-    return (
-        <>
-            <div
-                            // initial={{ x: "100%" }}
-                            // animate={{ x: "0%" }}
-                            //  transition={{ duration: 1 }} 
-                             name="About" id='About' className=" bg-gradient-to-r from-slate-200 to-indigo-200 flex flex-col  justify-center items-center text-center ">
-              
-                <div className="   flex flex-col items-center  px-6 md:px-20 md:mb-10 mb-3 ">
-                    <div className="headline mt-3 ">
-                        <p className='text-3xl flex flex-col justify-center items-center font-bold mt-6 mb-2 md:mb-1'>About<span className='h-1 rounded-full mt-2 bg-green-700 w-10'></span>
-                        </p>
-                          <p className=' mt-5 md:mb-7 text-lg text-justify px-2 md:px-25 '>Hi, I'm Imran Shaikh. I'm a BCA graduate from the class of 2024 with a strong passion for web development and technology.
-                        I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences. Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in HTML, CSS, JavaScript, React.js, Tailwind CSS, Php and Next.js. <span className=''>Thanks for visiting my portfolio, let's connect and create something awesome together.</span>
-                        </p>
-                        {/* 
-                        <span className='text-md md:text-lg text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolore, dolor praesentium deleniti, accusamus officiis ratione amet expedita rerum elit aspernatur magni.</span> */}
-                    </div>
-                    <br />
-                  <div
-                            initial={{ x: "50%" }}
-                            animate={{ x: "0%" }}
-                             transition={{ duration: 1 }}  className="contain">
-                        <p className='text-2xl md:text-3xl text-green-800 font-bold text-center'>Education</p>
-                        {/* college */}
-                        <div className="border-1  hover:border-0  hover:text-green-950 mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
-                            <b className='text-xl '> Bachelor of Computer Applications (BCA)</b>
-                            <p className='text-lg font-semibold'> JIS COLLEGE OF ENGINEERING <br /><span className='font-normal text-[15px] '>2021-24</span><br /> <span className='text-lg font-normal'>Kalyani, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2024</span> </p></div>
+  const [isDark, setIsDark] = useState(true)
 
-                        {/* 12 */}
-                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
-                            <b className='text-xl '>WBCHSE (12th) </b>
-                            <p className='text-lg font-semibold'> KABI BIJOYLAL HS INTITUTE <br /><span className='font-normal text-[15px] '>2029-21</span><br /> <span className='text-lg font-normal'>Krishnanagar, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2021</span> </p></div>
+  useEffect(() => {
+    const check = () => {
+      const theme = document.documentElement.getAttribute('data-theme')
+      setIsDark(theme !== 'light')
+    }
+    check()
+    const observer = new MutationObserver(check)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
-                        {/* 10 */}
-                        <div className="border-1  hover:border-0 hover:text-green-950  mt-6 rounded-lg hover:bg-gray-300 cursor-pointer px-8 py-4 md:px-50">
-                            <b className='text-xl '> WBBSE (10th)</b>
-                            <p className='text-lg font-semibold'>DON BOSCO HIGH SCHOOL <br /><span className='font-normal text-[15px] '>2009-19</span><br /> <span className='text-lg font-normal'>Krishnanagar, Nadia. WB</span><br /><span className='font-normal text-[15px]'>Year of passing: 2019</span> </p></div>
+  const D = isDark
 
+  // ── theme tokens ──────────────────────────────────────────────
+  const bg        = D ? '#050503'                              : '#faf6e8'
+//   const bgCard    = D ? 'rgba(12,10,4,0.9)'                   : 'rgba(255,253,242,0.95)'
+const bgCard = D ? 'rgba(30,30,30,0.95)' : 'rgba(245,245,245,0.95)'
 
-                    </div>
+//   const bgCardHov = D ? 'rgba(20,16,5,0.95)'                  : 'rgba(255,251,232,1)'
+const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
+  const borderCol = D ? 'rgba(212,175,55,0.15)'               : 'rgba(160,120,10,0.22)'
+  const borderHov = D ? 'rgba(212,175,55,0.5)'                : 'rgba(160,120,10,0.55)'
+  const textH     = D ? '#f3f4f6'                             : '#180e03'   // headings
+  const textB     = D ? '#d1d5db'                             : '#2d1a04'   // body
+  const textM     = D ? '#9ca3af'                             : '#7a4d0a'   // muted
+  const gridLine  = D ? 'rgba(212,175,55,0.035)'              : 'rgba(160,120,10,0.06)'
+  const tagBg     = D ? 'rgba(212,175,55,0.08)'               : 'rgba(180,130,10,0.1)'
+  const tagColor  = D ? 'rgba(212,175,55,0.75)'               : '#8a5c08'
 
-                    <p className='text-2xl flex flex-col justify-center items-center font-bold mt-15 mb-7 md:mb-5 text-green-800'>My Skills
-                    </p>
-                    <div className="skills pl-5  md:ml-10 text-center flex space-x-3  flex-wrap">
-                        <p className='hover:scale-115 transition-transform duration-200 bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2 hover:bg-gray-700 hover:text-white cursor-pointer'>HTML</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>CSS</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Python</p>
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap');
 
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Tailwind CSS</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>JavaScript</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>React</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Next Js</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Node Js</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>PHP</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Wordpress</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>MongoDB</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5  font-semibold py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Github</p>
-                        <p className='hover:scale-115 transition-transform duration-200  bg-gray-200 border-1 text-green-900 rounded-md px-5 font-semibold  py-2 mt-3 md:px-6 md:py-2  hover:bg-gray-700 hover:text-white cursor-pointer'>Responsive Design
-                        </p>
+        #About { font-family: 'Rajdhani', sans-serif; }
 
-                    </div>
+        /* grid bg */
+        .ab-wrap { position: relative; }
+        .ab-wrap::before {
+          content: '';
+          position: absolute; inset: 0; pointer-events: none; z-index: 0;
+          background-image:
+            linear-gradient(${gridLine} 1px, transparent 1px),
+            linear-gradient(90deg, ${gridLine} 1px, transparent 1px);
+          background-size: 56px 56px;
+        }
+
+        /* ── education card ── */
+        .edu-card {
+          position: relative; overflow: hidden;
+          border-radius: 16px;
+          border: 1px solid ${borderCol};
+          background: ${bgCard};
+          backdrop-filter: blur(14px);
+          padding: 0;
+          transition: all 0.35s ease;
+        }
+        .edu-card:hover {
+          border-color: ${borderHov};
+          background: ${bgCardHov};
+          box-shadow: 0 0 35px rgba(212,175,55,0.14), 0 8px 32px rgba(0,0,0,0.25);
+          transform: translateY(-4px);
+        }
+        /* shimmer left bar */
+        .edu-card::before {
+          content: '';
+          position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+          background: linear-gradient(180deg, #f5d060, #d4af37, #b8860b);
+          border-radius: 16px 0 0 16px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        .edu-card:hover::before { opacity: 1; }
+        /* top shimmer line */
+        .edu-card::after {
+          content: '';
+          position: absolute; top: 0; left: 8%; right: 8%; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+          opacity: 0; transition: opacity 0.3s;
+        }
+        .edu-card:hover::after { opacity: 1; }
+
+        /* ── skill pill ── */
+        .sk-pill {
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 7px 15px; border-radius: 9px;
+          font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em;
+          border: 1px solid ${borderCol};
+          background: ${bgCard};
+          color: ${D ? '#9ca3af' : '#6b3e08'};
+          transition: all 0.25s ease;
+          cursor: default;
+        }
+        .sk-pill:hover {
+          border-color: #d4af37;
+          color: #d4af37;
+          background: rgba(212,175,55,0.1);
+          box-shadow: 0 0 14px rgba(212,175,55,0.22);
+          transform: translateY(-3px) scale(1.05);
+        }
+
+        /* ── bio card ── */
+        .bio-card {
+          border-radius: 18px;
+          border: 1px solid ${borderCol};
+          background: ${bgCard};
+          backdrop-filter: blur(16px);
+          padding: 36px 40px;
+          position: relative; overflow: hidden;
+          transition: border-color 0.4s, background 0.4s;
+        }
+        .bio-card::before {
+          content: ''; position: absolute; top: 0; left: 8%; right: 8%; height: 1px;
+          background: linear-gradient(90deg,transparent,rgba(212,175,55,0.65),transparent);
+        }
+        .bio-card::after {
+          content: ''; position: absolute; bottom: 0; left: 8%; right: 8%; height: 1px;
+          background: linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent);
+        }
+
+        /* ── cat cards ── */
+        .cat-card {
+          border-radius: 14px; padding: 22px 18px; text-align: center;
+          border: 1px solid ${borderCol};
+          background: ${bgCard};
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+        }
+        .cat-card:hover {
+          border-color: ${borderHov};
+          box-shadow: 0 0 22px rgba(212,175,55,0.13);
+          transform: translateY(-4px);
+        }
+
+        /* number gradient */
+        .gold-num {
+          background: linear-gradient(135deg,#f5d060,#d4af37);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+      `}</style>
+
+      <section
+        id="About"
+        name="About"
+        className="ab-wrap w-full py-20 md:py-28 px-5 md:px-20 transition-colors duration-400"
+        style={{ background: bg }}
+      >
+        {/* ambient glow orbs */}
+        <div style={{ position:'absolute', top:'5%', right:'3%', width:500, height:500,
+          background:'radial-gradient(circle,rgba(212,175,55,0.055) 0%,transparent 70%)',
+          pointerEvents:'none', borderRadius:'50%', zIndex:0 }} />
+        <div style={{ position:'absolute', bottom:'15%', left:'2%', width:350, height:350,
+          background:'radial-gradient(circle,rgba(212,175,55,0.04) 0%,transparent 70%)',
+          pointerEvents:'none', borderRadius:'50%', zIndex:0 }} />
+
+        <div className="max-w-5xl mx-auto flex flex-col gap-24 relative z-10">
+
+          {/* ══════════ ABOUT ME ══════════ */}
+          <div>
+            <SectionHeading title="About Me" />
+            <motion.div
+              initial={{ opacity:0, y:30 }}
+              whileInView={{ opacity:1, y:0 }}
+              transition={{ duration:0.6 }}
+              viewport={{ once:true }}
+              className="bio-card"
+            >
+              {/* big quote */}
+              <span style={{
+                fontSize:'6rem', lineHeight:1,
+                color: D ? 'rgba(212,175,55,0.1)' : 'rgba(160,110,10,0.1)',
+                fontFamily:'Georgia,serif',
+                position:'absolute', top:8, left:18,
+                userSelect:'none', pointerEvents:'none',
+              }}>"</span>
+
+              {/* name tag */}
+              <div className="flex items-center gap-3 mb-6 pl-2">
+                <div style={{ width:4, height:42, background:'linear-gradient(180deg,#f5d060,#b8860b)', borderRadius:4 }} />
+                <div>
+                  <p style={{ fontFamily:'Rajdhani,sans-serif', fontSize:'0.7rem', fontWeight:700,
+                    textTransform:'uppercase', letterSpacing:'0.25em', color: tagColor }}>
+                    Full Stack Developer
+                  </p>
+                  <p style={{
+                    fontFamily:'Cinzel,serif', fontSize:'1.3rem', fontWeight:900,
+                    background:'linear-gradient(135deg,#f5d060,#d4af37,#b8860b)',
+                    WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
+                  }}>Imran Shaikh</p>
                 </div>
+              </div>
+
+              <p style={{ color:textB, lineHeight:1.9, fontSize:'1rem', paddingLeft:6, marginBottom:12 }}>
+                I'm a{' '}
+                <span style={{ color:'#d4af37', fontWeight:700 }}>BCA graduate from the class of 2024</span>
+                {' '}with a strong passion for web development and technology.
+                I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences.
+                Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in
+                {' '}<span style={{ color:'#d4af37', fontWeight:600 }}>HTML, CSS, JavaScript, React.js, Tailwind CSS, PHP</span> and{' '}
+                <span style={{ color:'#d4af37', fontWeight:600 }}>Next.js</span>.
+              </p>
+              <p style={{ color:textM, lineHeight:1.9, fontSize:'0.95rem', paddingLeft:6 }}>
+                Thanks for visiting my portfolio — let's connect and create something awesome together. 🚀
+              </p>
+
+              {/* stats */}
+              <div className="flex flex-wrap gap-8 mt-8 pl-2 pt-6"
+                style={{ borderTop:`1px solid ${borderCol}` }}>
+                {[
+                  { val:'2+',   lbl:'Years Experience' },
+                  { val:'20+',  lbl:'Projects Built' },
+                  { val:'13+',  lbl:'Technologies' },
+                  { val:'2024', lbl:'BCA Graduate' },
+                ].map((s,i) => (
+                  <motion.div key={s.lbl}
+                    initial={{ opacity:0, y:10 }}
+                    whileInView={{ opacity:1, y:0 }}
+                    transition={{ delay:i*0.09 }}
+                    viewport={{ once:true }}
+                    className="flex flex-col"
+                  >
+                    <span className="gold-num" style={{ fontSize:'1.7rem', fontWeight:900 }}>{s.val}</span>
+                    <span style={{ fontSize:'0.68rem', textTransform:'uppercase', letterSpacing:'0.18em', color:textM }}>{s.lbl}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ══════════ EDUCATION ══════════ */}
+          <div>
+            <SectionHeading title="Education" />
+
+            {/* Timeline wrapper */}
+            <div className="relative flex flex-col gap-6">
+              {/* vertical line */}
+              <div style={{
+                position:'absolute', left: 26, top: 52, bottom: 52, width: 1,
+                background: 'linear-gradient(180deg, rgba(212,175,55,0.6), rgba(212,175,55,0.1))',
+                display: 'none',
+              }} />
+
+              {education.map((edu, i) => (
+                <motion.div
+                  key={edu.degree}
+                  initial={{ opacity:0, x:-40 }}
+                  whileInView={{ opacity:1, x:0 }}
+                  transition={{ delay:i*0.12, duration:0.55, ease:[0.22,1,0.36,1] }}
+                  viewport={{ once:true }}
+                  className="edu-card"
+                >
+                  <div className="flex items-stretch">
+                    {/* left accent number column */}
+                    <div className="flex flex-col items-center justify-center px-5 py-5"
+                      style={{
+                        borderRight: `1px solid ${borderCol}`,
+                        minWidth: 68,
+                        background: D
+                          ? 'linear-gradient(180deg,rgba(212,175,55,0.07),rgba(212,175,55,0.02))'
+                          : 'linear-gradient(180deg,rgba(180,130,10,0.08),rgba(180,130,10,0.03))',
+                      }}>
+                      <span style={{ fontSize:'1.8rem' }}>{edu.icon}</span>
+                      <span style={{
+                        fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
+                        letterSpacing:'0.1em', color:tagColor, marginTop:6, textAlign:'center',
+                        fontFamily:'Rajdhani,sans-serif',
+                      }}>{String(i+1).padStart(2,'0')}</span>
+                    </div>
+
+                    {/* content */}
+                    <div className="flex-1 px-6 py-5">
+                      {/* tag + passing badge row */}
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span style={{
+                          fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
+                          letterSpacing:'0.15em', padding:'3px 10px', borderRadius:99,
+                          background:tagBg, color:tagColor,
+                          border:`1px solid ${borderCol}`,
+                          fontFamily:'Rajdhani,sans-serif',
+                        }}>{edu.tag}</span>
+                        <span style={{
+                          fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
+                          letterSpacing:'0.12em', padding:'3px 10px', borderRadius:99,
+                          background:'rgba(34,197,94,0.1)', color:'#22c55e',
+                          border:'1px solid rgba(34,197,94,0.2)',
+                          fontFamily:'Rajdhani,sans-serif',
+                        }}>✓ Passed {edu.passing}</span>
+                      </div>
+
+                      {/* degree */}
+                      <p style={{
+                        fontFamily:'Cinzel,serif',
+                        fontSize:'clamp(0.9rem, 2vw, 1.15rem)',
+                        fontWeight:900, lineHeight:1.35,
+                        background:'linear-gradient(135deg,#f5d060,#d4af37,#c8a020)',
+                        WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
+                        marginBottom:4,
+                      }}>{edu.degree}</p>
+
+                      {/* institute */}
+                      <p style={{ color:textH, fontWeight:700, fontSize:'1rem', marginBottom:8 }}>
+                        {edu.institute}
+                      </p>
+
+                      {/* meta row */}
+                      <div className="flex flex-wrap gap-x-5 gap-y-1">
+                        <span style={{ color:textM, fontSize:'0.82rem', display:'flex', alignItems:'center', gap:5 }}>
+                          <span style={{ color:'#d4af37', fontSize:'0.75rem' }}>📅</span> {edu.period}
+                        </span>
+                        <span style={{ color:textM, fontSize:'0.82rem', display:'flex', alignItems:'center', gap:5 }}>
+                          <span style={{ color:'#d4af37', fontSize:'0.75rem' }}>📍</span> {edu.location}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="partition border-b-1 mt-6 border-gray-500"></div>
-        </>
-    )
+          </div>
+
+          {/* ══════════ SKILLS ══════════ */}
+          <div>
+            <SectionHeading title="My Skills" />
+
+            <motion.div
+              initial={{ opacity:0 }}
+              whileInView={{ opacity:1 }}
+              transition={{ duration:0.5 }}
+              viewport={{ once:true }}
+              className="flex flex-wrap justify-center gap-3 mb-10"
+            >
+              {skills.map((skill, i) => (
+                <motion.span
+                  key={skill.name}
+                  className="sk-pill"
+                  initial={{ opacity:0, scale:0.7 }}
+                  whileInView={{ opacity:1, scale:1 }}
+                  transition={{ delay:i*0.04, duration:0.35 }}
+                  viewport={{ once:true }}
+                >
+                  <span>{skill.icon}</span>
+                  {skill.name}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* category cards */}
+            <motion.div
+              initial={{ opacity:0, y:20 }}
+              whileInView={{ opacity:1, y:0 }}
+              transition={{ duration:0.5, delay:0.25 }}
+              viewport={{ once:true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-5"
+            >
+              {[
+                { cat:'Frontend',         items:['React','Next.js','Tailwind CSS','HTML5','CSS3','JavaScript'],  icon:'🖥️' },
+                { cat:'Backend',          items:['Node.js','PHP','Python','REST APIs','Express.js'],              icon:'⚙️' },
+                { cat:'Database & Tools', items:['MongoDB','GitHub','WordPress','Responsive Design'],            icon:'🛠️' },
+              ].map((c, i) => (
+                <motion.div
+                  key={c.cat}
+                  className="cat-card"
+                  initial={{ opacity:0, y:15 }}
+                  whileInView={{ opacity:1, y:0 }}
+                  transition={{ delay:0.3+i*0.1 }}
+                  viewport={{ once:true }}
+                >
+                  <div style={{ fontSize:'2rem', marginBottom:10 }}>{c.icon}</div>
+                  <p style={{
+                    fontFamily:'Rajdhani,sans-serif', fontWeight:900,
+                    fontSize:'0.78rem', textTransform:'uppercase', letterSpacing:'0.2em',
+                    background:'linear-gradient(135deg,#f5d060,#d4af37)',
+                    WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
+                    marginBottom:10,
+                  }}>{c.cat}</p>
+                  <div className="flex flex-wrap justify-center gap-1.5">
+                    {c.items.map(item => (
+                      <span key={item} style={{
+                        fontSize:'0.7rem', fontWeight:600, padding:'3px 9px', borderRadius:6,
+                        background: D ? 'rgba(212,175,55,0.08)' : 'rgba(180,130,10,0.08)',
+                        border:`1px solid ${borderCol}`,
+                        color: textM,
+                      }}>{item}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
+      <div style={{ height:1, background:`linear-gradient(90deg,transparent,${D?'rgba(212,175,55,0.3)':'rgba(160,110,10,0.3)'},transparent)` }} />
+    </>
+  )
 }
 
 export default About

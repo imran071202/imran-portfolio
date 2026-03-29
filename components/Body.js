@@ -98,7 +98,7 @@ const Badge = ({ label, delay }) => (
 )
 
 /* ─── Stat counter ────────────────────────────────────────────── */
-const Stat = ({ value, label, delay }) => (
+const Stat = ({ value, label, delay, isDark }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -106,13 +106,26 @@ const Stat = ({ value, label, delay }) => (
     viewport={{ once: true }}
     className="text-center">
     <div className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-600">{value}</div>
-    <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mt-0.5">{label}</div>
+    <div className={`text-[10px] md:text-xs uppercase tracking-widest mt-0.5 ${isDark ? 'text-gray-400' : 'text-yellow-800/70'}`}>{label}</div>
   </motion.div>
 )
 
 /* ─── Main Component ─────────────────────────────────────────── */
 const Body = () => {
   const [isOpen, setIsOpen] = useState()
+  const [isDark, setIsDark] = useState(true)
+
+  /* ── sync with navbar theme toggle ── */
+  useEffect(() => {
+    const check = () => {
+      const theme = document.documentElement.getAttribute('data-theme')
+      setIsDark(theme !== 'light')
+    }
+    check()
+    const observer = new MutationObserver(check)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
   const handleDownloadPdf = () => {
     const link = document.createElement('a')
@@ -121,11 +134,17 @@ const Body = () => {
     link.click()
   }
 
-//   const skills = [
-//     'React.js', 'Next.js', 'Node.js', 'Express.js',
-//     'MongoDB', 'PostgreSQL', 'TypeScript', 'JavaScript',
-//     'Tailwind CSS', 'PHP', 'HTML5', 'CSS3', 'REST API', 'Git'
-//   ]
+  // ── theme-aware tokens (only what changes between modes) ──
+  const D = isDark
+  const sectionBg   = D ? '#000000'                          : '#faf6e8'
+  const gridColor   = D ? 'rgba(212,175,55,0.04)'            : 'rgba(160,110,10,0.06)'
+  const glowColor   = D ? 'rgba(212,175,55,0.07)'            : 'rgba(180,130,10,0.07)'
+  const greetColor  = D ? '#d1d5db'                          : '#3d1f04'
+  const statBorder  = D ? 'rgba(212,175,55,0.15)'            : 'rgba(160,110,10,0.22)'
+  const statBg      = D ? 'rgba(212,175,55,0.05)'            : 'rgba(180,130,10,0.07)'
+  const dividerBg   = D
+    ? 'linear-gradient(90deg, transparent, #d4af37, transparent)'
+    : 'linear-gradient(90deg, transparent, #b8860b, transparent)'
 
   return (
     <>
@@ -134,9 +153,9 @@ const Body = () => {
 
         #Body {
           font-family: 'Rajdhani', sans-serif;
-          background: #000000;
           position: relative;
           overflow: hidden;
+          transition: background 0.4s;
         }
 
         /* ── gold grid overlay ── */
@@ -145,8 +164,8 @@ const Body = () => {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+            linear-gradient(${gridColor} 1px, transparent 1px),
+            linear-gradient(90deg, ${gridColor} 1px, transparent 1px);
           background-size: 60px 60px;
           z-index: 0;
         }
@@ -159,7 +178,7 @@ const Body = () => {
           left: -10%;
           width: 70%;
           height: 80%;
-          background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse, ${glowColor} 0%, transparent 70%);
           z-index: 0;
           pointer-events: none;
         }
@@ -212,11 +231,6 @@ const Body = () => {
           transform: translateY(-4px) scale(1.1);
         }
 
-        .divider-gold {
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        }
-
         .status-dot {
           width: 8px; height: 8px;
           background: #22c55e;
@@ -249,7 +263,9 @@ const Body = () => {
         transition={{ duration: 1 }}
         id='Body'
         name="Home"
-        className="relative min-h-screen w-full text-white flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-5 md:px-12 lg:px-24 py-16 md:py-0">
+        className="relative min-h-screen w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-5 md:px-12 lg:px-24 py-16 md:py-0"
+        style={{ background: sectionBg, color: D ? '#ffffff' : '#180e03' }}
+      >
 
         {/* Particle canvas */}
         <Particles />
@@ -261,20 +277,11 @@ const Body = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-xl w-full">
 
-          {/* Status pill
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-yellow-500/25 bg-yellow-500/5 backdrop-blur-sm">
-            <span className="status-dot" />
-            <span className="text-xs text-yellow-400/80 tracking-widest uppercase font-semibold">Available for Work</span>
-          </motion.div> */}
-
           {/* Greeting */}
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
-            className="text-2xl mb-1 flex items-center gap-2 text-gray-300 md:mt-10">
+            className="text-2xl mb-1 flex items-center gap-2 md:mt-10"
+            style={{ color: greetColor }}>
             <span className="text-3xl">👋🏼</span>
             <span className="font-light tracking-wide">Hello, I'm</span>
           </motion.div>
@@ -291,7 +298,8 @@ const Body = () => {
           {/* Typed roles */}
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
-            className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-1 mb-5 text-lg md:text-2xl font-semibold text-gray-300">
+            className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-1 mb-5 text-lg md:text-2xl font-semibold"
+            style={{ color: D ? '#d1d5db' : '#5a3010' }}>
             <span>I'm a</span>
             <ReactTyped
               className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500"
@@ -302,17 +310,8 @@ const Body = () => {
             />
           </motion.div>
 
-          <div className="divider-gold w-full md:w-3/4 mb-6" />
-
-          {/* Skills badges
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center md:justify-start gap-2 mb-7">
-            {skills.map((s, i) => <Badge key={s} label={s} delay={i * 0.04} />)}
-          </motion.div> */}
+          {/* Gold divider */}
+          <div className="w-full md:w-3/4 mb-6" style={{ height: 1, background: dividerBg }} />
 
           {/* Stats row */}
           <motion.div
@@ -320,14 +319,15 @@ const Body = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex gap-6 md:gap-10 mb-8 px-5 py-4 rounded-xl border border-yellow-500/15 bg-yellow-500/5 backdrop-blur-sm w-full md:w-auto">
-            <Stat value="1+" label="Years Exp." delay={0.1} />
-            <div className="w-px bg-yellow-500/20" />
-            <Stat value="10+" label="Projects" delay={0.2} />
-            <div className="w-px bg-yellow-500/20" />
-            <Stat value="BCA" label="Graduate" delay={0.3} />
-            <div className="w-px bg-yellow-500/20" />
-            <Stat value="10+" label="Technologies" delay={0.4} />
+            className="flex gap-6 md:gap-10 mb-8 px-5 py-4 rounded-xl backdrop-blur-sm w-full md:w-auto"
+            style={{ border: `1px solid ${statBorder}`, background: statBg }}>
+            <Stat value="1+" label="Years Exp." delay={0.1} isDark={D} />
+            <div style={{ width: 1, background: statBorder }} />
+            <Stat value="10+" label="Projects" delay={0.2} isDark={D} />
+            <div style={{ width: 1, background: statBorder }} />
+            <Stat value="BCA" label="Graduate" delay={0.3} isDark={D} />
+            <div style={{ width: 1, background: statBorder }} />
+            <Stat value="10+" label="Technologies" delay={0.4} isDark={D} />
           </motion.div>
 
           {/* Download CV button */}
@@ -339,38 +339,12 @@ const Body = () => {
             className="mb-8">
             <button
               onClick={handleDownloadPdf}
-              className="glow-btn flex items-center gap-3 px-7 py-3.5 rounded-lg text-black font-bold text-base tracking-wide">
+              className="glow-btn flex cursor-pointer items-center gap-3 px-7 py-3.5 rounded-lg text-black font-bold text-base tracking-wide">
               <FaFileDownload className="text-lg" />
               Download Resume
             </button>
           </motion.div>
 
-          {/* Social icons */}
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">Find me on</p>
-            <ul className="flex items-center gap-3">
-              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://www.linkedin.com/in/imran-shaikh-163372241/" target="_blank" className="social-btn" aria-label="LinkedIn">
-                  <BsLinkedin style={{ color: '#0ea5e9' }} />
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://github.com/imran071202" target="_blank" className="social-btn" aria-label="GitHub">
-                  <FaGithub style={{ color: '#e2e8f0' }} />
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://x.com/Imran___02" target="_blank" className="social-btn" aria-label="X/Twitter">
-                  <FaXTwitter style={{ color: '#e2e8f0' }} />
-                </a>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://www.facebook.com/imran.shaikh.562433" target="_blank" className="social-btn" aria-label="Facebook">
-                  <FaFacebookSquare style={{ color: '#3b82f6' }} />
-                </a>
-              </motion.li>
-            </ul>
-          </div>
         </motion.div>
 
         {/* ── RIGHT — AVATAR ───────────────────────────── */}
@@ -382,7 +356,7 @@ const Body = () => {
 
           <TiltCard>
             {/* Outer decorative glow ring */}
-            <div className="relative flex items-center justify-center  mt-5 md:mt-0">
+            <div className="relative flex items-center justify-center mt-5 md:mt-0">
               {/* Spinning gradient ring */}
               <div className="avatar-ring absolute rounded-full"
                 style={{ width: 'calc(100% + 8px)', height: 'calc(100% + 8px)', top: '-12px', left: '-4px' }} />
@@ -417,13 +391,12 @@ const Body = () => {
                 Full Stack Developer
               </motion.div>
 
-              {/* Floating badge — Open to Work */}
+              {/* Floating badge — top right (empty, kept as is) */}
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute -top-4 -right-8 px-3 py-1.5 rounded-lg text-xs font-bold border border-yellow-500/40 text-yellow-300 bg-black/60 backdrop-blur-sm shadow-lg"
                 style={{ zIndex: 20 }}>
-                {/* BCA 2024 🎓 */}
               </motion.div>
             </div>
           </TiltCard>
