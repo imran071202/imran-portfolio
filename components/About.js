@@ -3,48 +3,49 @@ import React, { useState, useEffect } from 'react'
 import { motion } from "motion/react"
 
 const skills = [
-  { name: "HTML",              icon: "🌐" },
-  { name: "CSS",               icon: "🎨" },
-  { name: "JavaScript",       icon: "⚡" },
-  { name: "Python",           icon: "🐍" },
-  { name: "Tailwind CSS",     icon: "💨" },
-  { name: "React",            icon: "⚛️" },
-  { name: "Next.js",          icon: "▲"  },
-  { name: "Node.js",          icon: "🟢" },
-  { name: "PHP",              icon: "🐘" },
-  { name: "MongoDB",          icon: "🍃" },
-  { name: "WordPress",        icon: "📝" },
-  { name: "GitHub",           icon: "🐙" },
-  { name: "Responsive Design",icon: "📱" },
+  { name: "HTML", icon: "🌐" },
+  { name: "CSS", icon: "🎨" },
+  { name: "JavaScript", icon: "⚡" },
+  { name: "Python", icon: "🐍" },
+  { name: "Tailwind CSS", icon: "💨" },
+  { name: "React", icon: "⚛️" },
+  { name: "Next.js", icon: "▲" },
+  { name: "Node.js", icon: "🟢" },
+  { name: "PostgreSQL", icon: "🐘" },
+  { name: "MongoDB", icon: "🍃" },
+  { name: "Express.js", icon: "📝" },
+  { name: "Firebase", icon: "🔥" },
+  { name: "GitHub", icon: "🐙" },
+  { name: "Responsive Design", icon: "📱" },
 ]
 
 const education = [
   {
-    degree:    "Bachelor of Computer Applications (BCA)",
+    degree: "Bachelor of Computer Applications (BCA)",
     institute: "JIS College of Engineering",
-    period:    "2021 – 2024",
-    location:  "Kalyani, Nadia, WB",
-    passing:   "2024",
-    icon:      "🎓",
-    tag:       "University",
+    period: "2021 – 2024",
+    location: "Kalyani, Nadia, WB",
+    passing: "2024",
+    icon: "🎓",
+    tag: "University",
   },
   {
-    degree:    "WBCHSE (12th)",
+    degree: "WBCHSE (12th)",
     institute: "Kabi Bijoylal HS Institute",
-    period:    "2019 – 2021",
-    location:  "Krishnanagar, Nadia, WB",
-    passing:   "2021",
-    icon:      "📚",
-    tag:       "Higher Secondary",
+    period: "2019 – 2021",
+    location: "Krishnanagar, Nadia, WB",
+    passing: "2021",
+    icon: "📚",
+    tag: "Higher Secondary",
   },
   {
-    degree:    "WBBSE (10th)",
+    degree: "WBBSE (10th)",
     institute: "Don Bosco High School",
-    period:    "2009 – 2019",
-    location:  "Krishnanagar, Nadia, WB",
-    passing:   "2019",
-    icon:      "🏫",
-    tag:       "Secondary",
+    period: "2009 – 2019",
+    location: "Krishnanagar, Nadia, WB",
+    passing: "2019",
+    icon: "🏫",
+    tag: "Secondary",
   },
 ]
 
@@ -98,20 +99,20 @@ const About = () => {
   const D = isDark
 
   // ── theme tokens ──────────────────────────────────────────────
-  const bg        = D ? '#050503'                              : '#faf6e8'
-//   const bgCard    = D ? 'rgba(12,10,4,0.9)'                   : 'rgba(255,253,242,0.95)'
-const bgCard = D ? 'rgba(30,30,30,0.95)' : 'rgba(245,245,245,0.95)'
+  const bg = D ? '#050503' : '#faf6e8'
+  //   const bgCard    = D ? 'rgba(12,10,4,0.9)'                   : 'rgba(255,253,242,0.95)'
+  const bgCard = D ? 'rgba(30,30,30,0.95)' : 'rgba(245,245,245,0.95)'
 
-//   const bgCardHov = D ? 'rgba(20,16,5,0.95)'                  : 'rgba(255,251,232,1)'
-const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
-  const borderCol = D ? 'rgba(212,175,55,0.15)'               : 'rgba(160,120,10,0.22)'
-  const borderHov = D ? 'rgba(212,175,55,0.5)'                : 'rgba(160,120,10,0.55)'
-  const textH     = D ? '#f3f4f6'                             : '#180e03'   // headings
-  const textB     = D ? '#d1d5db'                             : '#2d1a04'   // body
-  const textM     = D ? '#9ca3af'                             : '#7a4d0a'   // muted
-  const gridLine  = D ? 'rgba(212,175,55,0.035)'              : 'rgba(160,120,10,0.06)'
-  const tagBg     = D ? 'rgba(212,175,55,0.08)'               : 'rgba(180,130,10,0.1)'
-  const tagColor  = D ? 'rgba(212,175,55,0.75)'               : '#8a5c08'
+  //   const bgCardHov = D ? 'rgba(20,16,5,0.95)'                  : 'rgba(255,251,232,1)'
+  const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
+  const borderCol = D ? 'rgba(212,175,55,0.15)' : 'rgba(160,120,10,0.22)'
+  const borderHov = D ? 'rgba(212,175,55,0.5)' : 'rgba(160,120,10,0.55)'
+  const textH = D ? '#f3f4f6' : '#180e03'   // headings
+  const textB = D ? '#d1d5db' : '#2d1a04'   // body
+  const textM = D ? '#9ca3af' : '#7a4d0a'   // muted
+  const gridLine = D ? 'rgba(212,175,55,0.035)' : 'rgba(160,120,10,0.06)'
+  const tagBg = D ? 'rgba(212,175,55,0.08)' : 'rgba(180,130,10,0.1)'
+  const tagColor = D ? 'rgba(212,175,55,0.75)' : '#8a5c08'
 
   return (
     <>
@@ -232,12 +233,16 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
         style={{ background: bg }}
       >
         {/* ambient glow orbs */}
-        <div style={{ position:'absolute', top:'5%', right:'3%', width:500, height:500,
-          background:'radial-gradient(circle,rgba(212,175,55,0.055) 0%,transparent 70%)',
-          pointerEvents:'none', borderRadius:'50%', zIndex:0 }} />
-        <div style={{ position:'absolute', bottom:'15%', left:'2%', width:350, height:350,
-          background:'radial-gradient(circle,rgba(212,175,55,0.04) 0%,transparent 70%)',
-          pointerEvents:'none', borderRadius:'50%', zIndex:0 }} />
+        <div style={{
+          position: 'absolute', top: '5%', right: '3%', width: 500, height: 500,
+          background: 'radial-gradient(circle,rgba(212,175,55,0.055) 0%,transparent 70%)',
+          pointerEvents: 'none', borderRadius: '50%', zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute', bottom: '15%', left: '2%', width: 350, height: 350,
+          background: 'radial-gradient(circle,rgba(212,175,55,0.04) 0%,transparent 70%)',
+          pointerEvents: 'none', borderRadius: '50%', zIndex: 0
+        }} />
 
         <div className="max-w-5xl mx-auto flex flex-col gap-24 relative z-10">
 
@@ -245,68 +250,71 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
           <div>
             <SectionHeading title="About Me" />
             <motion.div
-              initial={{ opacity:0, y:30 }}
-              whileInView={{ opacity:1, y:0 }}
-              transition={{ duration:0.6 }}
-              viewport={{ once:true }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
               className="bio-card"
             >
               {/* big quote */}
               <span style={{
-                fontSize:'6rem', lineHeight:1,
+                fontSize: '6rem', lineHeight: 1,
                 color: D ? 'rgba(212,175,55,0.1)' : 'rgba(160,110,10,0.1)',
-                fontFamily:'Georgia,serif',
-                position:'absolute', top:8, left:18,
-                userSelect:'none', pointerEvents:'none',
+                fontFamily: 'Georgia,serif',
+                position: 'absolute', top: 8, left: 18,
+                userSelect: 'none', pointerEvents: 'none',
               }}>"</span>
 
               {/* name tag */}
               <div className="flex items-center gap-3 mb-6 pl-2">
-                <div style={{ width:4, height:42, background:'linear-gradient(180deg,#f5d060,#b8860b)', borderRadius:4 }} />
+                <div style={{ width: 4, height: 42, background: 'linear-gradient(180deg,#f5d060,#b8860b)', borderRadius: 4 }} />
                 <div>
-                  <p style={{ fontFamily:'Rajdhani,sans-serif', fontSize:'0.7rem', fontWeight:700,
-                    textTransform:'uppercase', letterSpacing:'0.25em', color: tagColor }}>
+                  <p style={{
+                    fontFamily: 'Rajdhani,sans-serif', fontSize: '0.7rem', fontWeight: 700,
+                    textTransform: 'uppercase', letterSpacing: '0.25em', color: tagColor
+                  }}>
                     Full Stack Developer
                   </p>
                   <p style={{
-                    fontFamily:'Cinzel,serif', fontSize:'1.3rem', fontWeight:900,
-                    background:'linear-gradient(135deg,#f5d060,#d4af37,#b8860b)',
-                    WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
+                    fontFamily: 'Cinzel,serif', fontSize: '1.3rem', fontWeight: 900,
+                    background: 'linear-gradient(135deg,#f5d060,#d4af37,#b8860b)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                   }}>Imran Shaikh</p>
                 </div>
               </div>
 
-              <p style={{ color:textB, lineHeight:1.9, fontSize:'1rem', paddingLeft:6, marginBottom:12 }}>
+              <p style={{ color: textB, lineHeight: 1.9, fontSize: '1rem', paddingLeft: 6, marginBottom: 12 }}>
                 I'm a{' '}
-                <span style={{ color:'#d4af37', fontWeight:700 }}>BCA graduate from the class of 2024</span>
+                <span style={{ color: '#d4af37', fontWeight: 700 }}>BCA graduate from the class of 2024</span>
                 {' '}with a strong passion for web development and technology.
                 I enjoy creating responsive, user-friendly websites and applications that deliver great digital experiences.
                 Throughout my academic journey, I've worked on multiple projects that helped me strengthen my skills in
-                {' '}<span style={{ color:'#d4af37', fontWeight:600 }}>HTML, CSS, JavaScript, React.js, Tailwind CSS, PHP</span> and{' '}
-                <span style={{ color:'#d4af37', fontWeight:600 }}>Next.js</span>.
+                {' '}<span style={{ color: '#d4af37', fontWeight: 600 }}>HTML, CSS, JavaScript, React.js, Express JS, Tailwind CSS, PHP, PostgreSQL, MySQL, VB.Net</span> and{' '}
+                <span style={{ color: '#d4af37', fontWeight: 600 }}>Next.js</span>.
               </p>
-              <p style={{ color:textM, lineHeight:1.9, fontSize:'0.95rem', paddingLeft:6 }}>
+              <p style={{ color: textM, lineHeight: 1.9, fontSize: '0.95rem', paddingLeft: 6 }}>
                 Thanks for visiting my portfolio — let's connect and create something awesome together. 🚀
               </p>
 
               {/* stats */}
               <div className="flex flex-wrap gap-8 mt-8 pl-2 pt-6"
-                style={{ borderTop:`1px solid ${borderCol}` }}>
+                style={{ borderTop: `1px solid ${borderCol}` }}>
                 {[
-                  { val:'2+',   lbl:'Years Experience' },
-                  { val:'20+',  lbl:'Projects Built' },
-                  { val:'13+',  lbl:'Technologies' },
-                  { val:'2024', lbl:'BCA Graduate' },
-                ].map((s,i) => (
+                  { val: '1+', lbl: 'Years Experience' },
+                  { val: '10+', lbl: 'Projects Built' },
+                  { val: '2024', lbl: 'BCA Graduate' },
+                  { val: '10+', lbl: 'Technologies' },
+
+                ].map((s, i) => (
                   <motion.div key={s.lbl}
-                    initial={{ opacity:0, y:10 }}
-                    whileInView={{ opacity:1, y:0 }}
-                    transition={{ delay:i*0.09 }}
-                    viewport={{ once:true }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.09 }}
+                    viewport={{ once: true }}
                     className="flex flex-col"
                   >
-                    <span className="gold-num" style={{ fontSize:'1.7rem', fontWeight:900 }}>{s.val}</span>
-                    <span style={{ fontSize:'0.68rem', textTransform:'uppercase', letterSpacing:'0.18em', color:textM }}>{s.lbl}</span>
+                    <span className="gold-num" style={{ fontSize: '1.7rem', fontWeight: 900 }}>{s.val}</span>
+                    <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: textM }}>{s.lbl}</span>
                   </motion.div>
                 ))}
               </div>
@@ -321,7 +329,7 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
             <div className="relative flex flex-col gap-6">
               {/* vertical line */}
               <div style={{
-                position:'absolute', left: 26, top: 52, bottom: 52, width: 1,
+                position: 'absolute', left: 26, top: 52, bottom: 52, width: 1,
                 background: 'linear-gradient(180deg, rgba(212,175,55,0.6), rgba(212,175,55,0.1))',
                 display: 'none',
               }} />
@@ -329,10 +337,10 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
               {education.map((edu, i) => (
                 <motion.div
                   key={edu.degree}
-                  initial={{ opacity:0, x:-40 }}
-                  whileInView={{ opacity:1, x:0 }}
-                  transition={{ delay:i*0.12, duration:0.55, ease:[0.22,1,0.36,1] }}
-                  viewport={{ once:true }}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  viewport={{ once: true }}
                   className="edu-card"
                 >
                   <div className="flex items-stretch">
@@ -345,12 +353,12 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
                           ? 'linear-gradient(180deg,rgba(212,175,55,0.07),rgba(212,175,55,0.02))'
                           : 'linear-gradient(180deg,rgba(180,130,10,0.08),rgba(180,130,10,0.03))',
                       }}>
-                      <span style={{ fontSize:'1.8rem' }}>{edu.icon}</span>
+                      <span style={{ fontSize: '1.8rem' }}>{edu.icon}</span>
                       <span style={{
-                        fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
-                        letterSpacing:'0.1em', color:tagColor, marginTop:6, textAlign:'center',
-                        fontFamily:'Rajdhani,sans-serif',
-                      }}>{String(i+1).padStart(2,'0')}</span>
+                        fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase',
+                        letterSpacing: '0.1em', color: tagColor, marginTop: 6, textAlign: 'center',
+                        fontFamily: 'Rajdhani,sans-serif',
+                      }}>{String(i + 1).padStart(2, '0')}</span>
                     </div>
 
                     {/* content */}
@@ -358,43 +366,43 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
                       {/* tag + passing badge row */}
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <span style={{
-                          fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
-                          letterSpacing:'0.15em', padding:'3px 10px', borderRadius:99,
-                          background:tagBg, color:tagColor,
-                          border:`1px solid ${borderCol}`,
-                          fontFamily:'Rajdhani,sans-serif',
+                          fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase',
+                          letterSpacing: '0.15em', padding: '3px 10px', borderRadius: 99,
+                          background: tagBg, color: tagColor,
+                          border: `1px solid ${borderCol}`,
+                          fontFamily: 'Rajdhani,sans-serif',
                         }}>{edu.tag}</span>
                         <span style={{
-                          fontSize:'0.6rem', fontWeight:700, textTransform:'uppercase',
-                          letterSpacing:'0.12em', padding:'3px 10px', borderRadius:99,
-                          background:'rgba(34,197,94,0.1)', color:'#22c55e',
-                          border:'1px solid rgba(34,197,94,0.2)',
-                          fontFamily:'Rajdhani,sans-serif',
+                          fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase',
+                          letterSpacing: '0.12em', padding: '3px 10px', borderRadius: 99,
+                          background: 'rgba(34,197,94,0.1)', color: '#22c55e',
+                          border: '1px solid rgba(34,197,94,0.2)',
+                          fontFamily: 'Rajdhani,sans-serif',
                         }}>✓ Passed {edu.passing}</span>
                       </div>
 
                       {/* degree */}
                       <p style={{
-                        fontFamily:'Cinzel,serif',
-                        fontSize:'clamp(0.9rem, 2vw, 1.15rem)',
-                        fontWeight:900, lineHeight:1.35,
-                        background:'linear-gradient(135deg,#f5d060,#d4af37,#c8a020)',
-                        WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
-                        marginBottom:4,
+                        fontFamily: 'Cinzel,serif',
+                        fontSize: 'clamp(0.9rem, 2vw, 1.15rem)',
+                        fontWeight: 900, lineHeight: 1.35,
+                        background: 'linear-gradient(135deg,#f5d060,#d4af37,#c8a020)',
+                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                        marginBottom: 4,
                       }}>{edu.degree}</p>
 
                       {/* institute */}
-                      <p style={{ color:textH, fontWeight:700, fontSize:'1rem', marginBottom:8 }}>
+                      <p style={{ color: textH, fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>
                         {edu.institute}
                       </p>
 
                       {/* meta row */}
                       <div className="flex flex-wrap gap-x-5 gap-y-1">
-                        <span style={{ color:textM, fontSize:'0.82rem', display:'flex', alignItems:'center', gap:5 }}>
-                          <span style={{ color:'#d4af37', fontSize:'0.75rem' }}>📅</span> {edu.period}
+                        <span style={{ color: textM, fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: 5 }}>
+                          <span style={{ color: '#d4af37', fontSize: '0.75rem' }}>📅</span> {edu.period}
                         </span>
-                        <span style={{ color:textM, fontSize:'0.82rem', display:'flex', alignItems:'center', gap:5 }}>
-                          <span style={{ color:'#d4af37', fontSize:'0.75rem' }}>📍</span> {edu.location}
+                        <span style={{ color: textM, fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: 5 }}>
+                          <span style={{ color: '#d4af37', fontSize: '0.75rem' }}>📍</span> {edu.location}
                         </span>
                       </div>
                     </div>
@@ -409,20 +417,20 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
             <SectionHeading title="My Skills" />
 
             <motion.div
-              initial={{ opacity:0 }}
-              whileInView={{ opacity:1 }}
-              transition={{ duration:0.5 }}
-              viewport={{ once:true }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
               className="flex flex-wrap justify-center gap-3 mb-10"
             >
               {skills.map((skill, i) => (
                 <motion.span
                   key={skill.name}
                   className="sk-pill"
-                  initial={{ opacity:0, scale:0.7 }}
-                  whileInView={{ opacity:1, scale:1 }}
-                  transition={{ delay:i*0.04, duration:0.35 }}
-                  viewport={{ once:true }}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.04, duration: 0.35 }}
+                  viewport={{ once: true }}
                 >
                   <span>{skill.icon}</span>
                   {skill.name}
@@ -432,39 +440,42 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
 
             {/* category cards */}
             <motion.div
-              initial={{ opacity:0, y:20 }}
-              whileInView={{ opacity:1, y:0 }}
-              transition={{ duration:0.5, delay:0.25 }}
-              viewport={{ once:true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              viewport={{ once: true }}
               className="grid grid-cols-1 md:grid-cols-3 gap-5"
             >
               {[
-                { cat:'Frontend',         items:['React','Next.js','Tailwind CSS','HTML5','CSS3','JavaScript'],  icon:'🖥️' },
-                { cat:'Backend',          items:['Node.js','PHP','Python','REST APIs','Express.js'],              icon:'⚙️' },
-                { cat:'Database & Tools', items:['MongoDB','GitHub','WordPress','Responsive Design'],            icon:'🛠️' },
+                { cat: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'], icon: '🖥️' },
+                { cat: 'Backend', items: ['Node.js', 'PHP', 'Python', 'REST APIs', 'Express.js'], icon: '⚙️' },
+                { cat: 'Database', items: ['PostgreSQL', 'MySQL', 'MongoDB','Firebase'], icon: '💽' },
+                 { cat: 'Version Control ', items: ['Git', 'GitHub'], icon: '🤖' },
+                { cat: 'Code Editors', items: ['Visual Studio Code', 'IntelliJ IDEA', 'PyCharm', 'Antigravity'], icon: '🖱️' },
+                 { cat: 'Tools', items: ['Figma', 'DevTools', 'Postman','Jenkins','DataGrip','GitHub Copilot'], icon: '🛠️' },
               ].map((c, i) => (
                 <motion.div
                   key={c.cat}
                   className="cat-card"
-                  initial={{ opacity:0, y:15 }}
-                  whileInView={{ opacity:1, y:0 }}
-                  transition={{ delay:0.3+i*0.1 }}
-                  viewport={{ once:true }}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <div style={{ fontSize:'2rem', marginBottom:10 }}>{c.icon}</div>
+                  <div style={{ fontSize: '2rem', marginBottom: 10 }}>{c.icon}</div>
                   <p style={{
-                    fontFamily:'Rajdhani,sans-serif', fontWeight:900,
-                    fontSize:'0.78rem', textTransform:'uppercase', letterSpacing:'0.2em',
-                    background:'linear-gradient(135deg,#f5d060,#d4af37)',
-                    WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
-                    marginBottom:10,
+                    fontFamily: 'Rajdhani,sans-serif', fontWeight: 900,
+                    fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.2em',
+                    background: 'linear-gradient(135deg,#f5d060,#d4af37)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                    marginBottom: 10,
                   }}>{c.cat}</p>
                   <div className="flex flex-wrap justify-center gap-1.5">
                     {c.items.map(item => (
                       <span key={item} style={{
-                        fontSize:'0.7rem', fontWeight:600, padding:'3px 9px', borderRadius:6,
+                        fontSize: '0.7rem', fontWeight: 600, padding: '3px 9px', borderRadius: 6,
                         background: D ? 'rgba(212,175,55,0.08)' : 'rgba(180,130,10,0.08)',
-                        border:`1px solid ${borderCol}`,
+                        border: `1px solid ${borderCol}`,
                         color: textM,
                       }}>{item}</span>
                     ))}
@@ -477,7 +488,7 @@ const bgCardHov = D ? 'rgba(45,45,45,1)' : 'rgba(230,230,230,1)'
         </div>
       </section>
 
-      <div style={{ height:1, background:`linear-gradient(90deg,transparent,${D?'rgba(212,175,55,0.3)':'rgba(160,110,10,0.3)'},transparent)` }} />
+      <div style={{ height: 1, background: `linear-gradient(90deg,transparent,${D ? 'rgba(212,175,55,0.3)' : 'rgba(160,110,10,0.3)'},transparent)` }} />
     </>
   )
 }

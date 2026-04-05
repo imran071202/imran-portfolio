@@ -330,7 +330,7 @@ const Body = () => {
             <Stat value="10+" label="Technologies" delay={0.4} isDark={D} />
           </motion.div>
 
-          {/* Download CV button */}
+          {/* Download CV button
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -343,7 +343,7 @@ const Body = () => {
               <FaFileDownload className="text-lg" />
               Download Resume
             </button>
-          </motion.div>
+          </motion.div> */}
 
         </motion.div>
 

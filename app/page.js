@@ -9,6 +9,8 @@ import Contact from "@/components/Contact"
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Experience from '@/components/Experience'
+import Certificate from '@/components/Certificate'
 
 const page = () => {
   return (
@@ -18,7 +20,9 @@ const page = () => {
         <Navbar/>
         <Body />
         <About />
+        <Experience/>
         <Project />
+        <Certificate/>
         {/* <Resume /> */}
         <Contact />
         <Footer />

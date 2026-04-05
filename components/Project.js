@@ -5,6 +5,17 @@ import { motion } from "motion/react"
 const projects = [
   {
     id: 1,
+    title: "Skill Bridge",
+    subtitle: "Job Portal Web Application",
+    desc: "Built a full-stack job portal where users can register, login, browse jobs, and apply to openings. Developed RESTful APIs in Express.js with MongoDB for job postings, applications, and user profiles.",
+    tech: ["React.js", "Next.js", "Tailwind CSS", "Node.js", "Redux", "shadcn ui", "MongoDB", "Express.js"],
+    img: "./photo/job.png",
+    laptop: "./photo/laptop1.png",
+    tag: "Full Stack",
+    color: "#d4af37",
+  },
+  {
+    id: 2,
     title: "Home Roots",
     subtitle: "Real Estate Website",
     desc: "A fully responsive Real Estate platform where users can explore properties, connect with agents, and either buy or sell homes easily. Built to simulate a real-world platform and sharpen full-stack development skills.",
@@ -15,7 +26,7 @@ const projects = [
     color: "#d4af37",
   },
   {
-    id: 2,
+    id: 3,
     title: "Netflix Clone",
     subtitle: "Streaming UI Replica",
     desc: "A pixel-perfect Netflix Clone focused on frontend design and layout skills. Replicates the clean and stylish interface of Netflix while demonstrating responsive web design and modern UI structure.",
@@ -26,7 +37,7 @@ const projects = [
     color: "#e50914",
   },
   {
-    id: 3,
+    id: 4,
     title: "MSI Website",
     subtitle: "Gaming Brand Homepage",
     desc: "A recreation of the MSI (Micro-Star International) homepage capturing the gaming aesthetic and layout style of a leading hardware company, using modern frontend tools and design principles.",
@@ -37,7 +48,7 @@ const projects = [
     color: "#ef4444",
   },
   {
-    id: 4,
+    id: 5,
     title: "Amazon Clone",
     subtitle: "E-Commerce Platform",
     desc: "A detailed replica of Amazon's layout and key components — one of the largest e-commerce platforms. Great exercise in building clean, scalable UIs and understanding product listing structure.",
@@ -144,22 +155,25 @@ const ProjectCard = ({ project, index, isDark }) => {
             style={{ padding: '24px 24px 0 24px' }}
           >
             {/* laptop frame */}
-            <div className="relative">
+            <div className="relative mt-20 mb-1 md:mt-20 md:mb-17 ">
               {/* screen */}
-              <div style={{
-                borderRadius: '10px 10px 0 0',
+              <div className=''
+              style={{
+                borderRadius: '5px 5px 0 0',
                 overflow: 'hidden',
                 border: `2px solid ${isDark ? 'rgba(212,175,55,0.3)' : 'rgba(160,110,10,0.3)'}`,
                 borderBottom: 'none',
+                margin: '10px 20px 0 20px',
+                padding:'10px 10px 12px 10px',
                 boxShadow: isDark
                   ? '0 0 30px rgba(212,175,55,0.12), 0 -4px 20px rgba(0,0,0,0.4)'
                   : '0 0 20px rgba(160,110,10,0.1), 0 -4px 16px rgba(0,0,0,0.1)',
               }}>
-                <img
+                <img 
                   src={project.img}
                   alt={project.title}
-                  className="w-full object-cover object-top"
-                  style={{ height: 230,  display: 'block' }}
+                  className="w-full object-cover object-top h-30 md:h-52 block"
+                  // style={{ height: 130,  display: 'block' }}
                 />
               </div>
               {/* laptop base */}
