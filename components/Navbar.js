@@ -27,7 +27,7 @@ const socials = [
   { href: "https://www.linkedin.com/in/imran-shaikh-163372241/", icon: <BsLinkedin />,       colorDark: "#38bdf8", colorLight: "#0284c7", label: "LinkedIn"    },
   { href: "https://x.com/Imran___02",                            icon: <FaXTwitter />,       colorDark: "#e2e8f0", colorLight: "#1f2937", label: "X / Twitter" },
   { href: "https://www.facebook.com/imran.shaikh.562433",        icon: <FaFacebookSquare />, colorDark: "#3b82f6", colorLight: "#1d4ed8", label: "Facebook"    },
-  { href: "mailto:imran@example.com",                            icon: <FaEnvelope />,       colorDark: "#d4af37", colorLight: "#92650a", label: "Email"       },
+  // { href: "mailto:imran@example.com",                            icon: <FaEnvelope />,       colorDark: "#d4af37", colorLight: "#92650a", label: "Email"       },
 ]
 
 /* ════════════ SUB-COMPONENTS ════════════ */
@@ -510,12 +510,12 @@ const Navbar = () => {
         }}
       >
         {/* Theme toggle */}
-        <ThemeBtn isDark={D} onToggle={() => setIsDark(p => !p)} />
+        {/* <ThemeBtn isDark={D} onToggle={() => setIsDark(p => !p)} /> */}
 
         <GDiv />
 
         {/* Nav pills centered */}
-        <div className="flex flex-col items-center gap-1.5 flex-1 justify-center">
+        <div className="flex flex-col items-center gap- flex-1 justify-center">
           {navItems.map((item, i) => (
             <NavPill
               key={item.id}
@@ -543,8 +543,8 @@ const Navbar = () => {
       >
         <a href="/" className="nb-mLogo">&lt;Imran /&gt;</a>
 
-        <div className="flex items-center gap-2.5">
-          <ThemeBtn isDark={D} onToggle={() => setIsDark(p => !p)} />
+        <div className="flex items-center gap-2.5  mr-7 md:mr-0">
+          {/* <ThemeBtn isDark={D} onToggle={() => setIsDark(p => !p)} /> */}
 
           <div style={{ width: 1, height: 24,
             background: D ? 'rgba(212,175,55,0.22)' : 'rgba(180,140,20,0.25)' }} />

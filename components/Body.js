@@ -319,7 +319,7 @@ const Body = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex gap-6 md:gap-10 mb-8 px-5 py-4 rounded-xl backdrop-blur-sm w-full md:w-auto"
+            className="flex gap-5 md:gap-10 mb-8 px-5 py-4 rounded-xl backdrop-blur-sm w-full md:w-auto"
             style={{ border: `1px solid ${statBorder}`, background: statBg }}>
             <Stat value="1+" label="Years Exp." delay={0.1} isDark={D} />
             <div style={{ width: 1, background: statBorder }} />

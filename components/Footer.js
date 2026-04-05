@@ -13,8 +13,9 @@ import { motion } from "motion/react"
 const navLinks = [
   { label: "Home",    to: "Body"    },
   { label: "About",   to: "About"   },
+   { label: "Experience", to: "Experience" },
   { label: "Project", to: "Project" },
-  { label: "Resume",  to: "Resume"  },
+  { label: "Certificates",  to: "Certificate"  },
   { label: "Contact", to: "Contact" },
 ]
 
@@ -179,7 +180,7 @@ const Footer = () => {
                 viewport={{ once:true }}
                 className="flex flex-col items-center md:items-start gap-3"
               >
-                <a href="/" className="ft-logo">&lt;Imran /&gt;</a>
+                <a href="/" className="ft-logo">&lt;Imran Shaikh/&gt;</a>
                 <p style={{ fontSize:'0.72rem', fontWeight:700, textTransform:'uppercase',
                   letterSpacing:'0.22em', color:textSub }}>Full Stack Developer</p>
 
@@ -195,7 +196,7 @@ const Footer = () => {
                 {/* location */}
                 <div className="flex items-center gap-2 mt-1">
                   <FaLocationDot style={{ color:'#ef4444', fontSize:'0.85rem', flexShrink:0 }} />
-                  <span style={{ color:textM, fontSize:'0.8rem' }}>Krishnanagar, Nadia, West Bengal</span>
+                  <span style={{ color:textM, fontSize:'0.8rem' }}>Krishnanagar, Nadia, West Bengal. India</span>
                 </div>
               </motion.div>
 

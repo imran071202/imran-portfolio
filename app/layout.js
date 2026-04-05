@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Imran Shaikh",
-  description: "Web Developer",
+  description: "Full Stack Developer",
+  icons: {
+    icon: "./photo/i.png", // or "/favicon.ico"
+  },
 };
 
 export default function RootLayout({ children }) {

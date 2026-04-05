@@ -8,8 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const contactInfo = [
-  { icon: <FaEnvelope />,      label: "Email",    value: "imran@example.com",        color: "#d4af37" },
-  { icon: <FaPhoneAlt />,      label: "Phone",    value: "+91 XXXXX XXXXX",           color: "#22c55e" },
+  { icon: <FaEnvelope />,      label: "Email",    value: "imran071202@gmail.com",        color: "#d4af37" },
+  { icon: <FaPhoneAlt />,      label: "Phone",    value: "+91 7427928647",           color: "#22c55e" },
   { icon: <FaMapMarkerAlt />,  label: "Location", value: "West Bengal, India",        color: "#f87171" },
 ]
 
@@ -437,7 +437,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <div style={{ height:1, background:`linear-gradient(90deg,transparent,${D?'rgba(212,175,55,0.3)':'rgba(160,110,10,0.3)'},transparent)` }} />
+      <div style={{ height:0, background:`linear-gradient(90deg,transparent,${D?'rgba(212,175,55,0.3)':'rgba(160,110,10,0.3)'},transparent)` }} />
     </>
   )
 }
